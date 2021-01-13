@@ -94,6 +94,7 @@ header .logo {
   line-height: 1em;
   text-transform: uppercase;
   opacity: 1;
+  padding-bottom: 7.5px;
 }
 .text h3 {
   font-size: 2em;

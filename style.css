@@ -58,11 +58,14 @@ header .logo
   z-index: 2;
   /* margin-top: 0%; */
   padding-top: 0;
+  padding-bottom: 0;
   background-image: url(./Symbiosis_Institute_Of_Technol.png);
-  background: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
   opacity: 0.5;
 
 }
+
 .showcase.active
 {
   right: 300px;
@@ -98,17 +101,19 @@ header .logo
 {
   font-size: 5em;
   font-weight: 800;
-  color: black;
+  color: #fff;
   line-height: 1em;
   text-transform: uppercase;
+  opacity: 1;
 }
 .text h3
 {
   font-size: 2em;
   font-weight: 700;
-  color: black;
+  color: #fff;
   line-height: 1em;
   text-transform: uppercase;
+  opacity: 1;
 }
 .text p
 {
@@ -117,6 +122,7 @@ header .logo
   margin: 20px 0;
   font-weight: 400;
   max-width: 700px;
+  opacity: 10;
 }
 .text a
 {
@@ -144,6 +150,8 @@ header .logo
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 0%;
+  padding-top: 0;
 }
 .social li
 {

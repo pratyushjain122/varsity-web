@@ -177,6 +177,10 @@ header .logo {
   color: #03a9f4;
 }
 
+i{
+  color: black;
+} 
+
 @media (max-width: 991px) {
   .showcase,
   .showcase header {
@@ -192,8 +196,3 @@ header .logo {
     height: 100%;
   }
 }
-
-i{
-  color: black;
-}
-

@@ -10,25 +10,30 @@ function handleForm() {
     const enter_email = document.getElementById("enter_email").value;
     const enter_message = document.getElementById("enter_message").value;
 
-    const obj = {
-      Name: enter_name,
-      Email: enter_email,
-      Message: enter_message,
-    };
+    if (enter_name != null && enter_email != null && enter_message) {
+      console.log("all values set");
+      const obj = {
+        Name: enter_name,
+        Email: enter_email,
+        Message: enter_message,
+      };
 
-    RefContact.doc(obj.Email)
-      .set(obj)
-      .then(function () {
-        console.log("Success");
-      })
-      .catch(function (error) {
-        console.error("Error adding document: ", error);
-      });
+      RefContact.doc(obj.Email)
+        .set(obj)
+        .then(function () {
+          console.log("Success");
+        })
+        .catch(function (error) {
+          console.error("Error adding document: ", error);
+        });
+      //toast_handler();
+      $("#smptst").toast("show");
+    } else {
+      console.log("empty value");
+    }
 
     form.reset();
   });
 }
 
 handleForm();
-
-

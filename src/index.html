@@ -53,11 +53,9 @@
         </div>
       </div>
     </nav>
-    
 
     <div class="showcase">
-      <header>
-      </header>
+      <header></header>
       <div class="text">
         <h2>V@rsity Care</h2>
         <h3>
@@ -88,94 +86,78 @@
 
     <div class="contact-us row" id="contact-us">
       <div class="col-md-6">
-      <div class="text">
-        <h3 style="color: black;">
-          📱 Contact Us
-        </h3>
+        <div class="text">
+          <h3 style="color: black">📱 Contact Us</h3>
+        </div>
+
+        <form id="contact" class="col g-2 needs-validation" novalidate>
+          <div class="col-md-8">
+            <label for="validationCustom01" class="form-label"
+              ><h5>Name <strong style="color: red">*</strong></h5></label
+            >
+            <div class="input-group has-validation">
+              <span class="input-group-text border-end-0 border-primary border-2" id="inputGroupPrepend">🧑</span>
+              <input type="text" class="form-control border border-primary border-2" id="enter_name" validationCustom01="validationCustom01" placeholder="Enter your Name" required />
+              <div class="invalid-feedback">Please enter your name!</div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <label for="validationCustomUsername" class="form-label"
+              ><h5>Email <strong style="color: red">*</strong></h5></label
+            >
+            <div class="input-group has-validation">
+              <span class="input-group-text border-end-0 border-primary border-2" id="inputGroupPrepend">📬</span>
+              <input type="email" class="form-control border border-primary border-2" id="enter_email" id="validationCustomUsername" placeholder="name@example.com" required />
+              <div class="invalid-feedback">Please enter your email!</div>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <label for="validationCustom03" class="form-label"
+              ><h5>Message <strong style="color: red">*</strong></h5></label
+            >
+            <textarea class="form-control border border-primary border-2" id="enter_message" id="validationCustom03" placeholder="Type your message" rows="6" required></textarea>
+            <div class="invalid-feedback">Please enter a message!</div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" id="btnShow" type="submit">SUBMIT</button>
+          </div>
+          <div id="smptst" class="toast d-flex align-items-center text-white bg-dark border-0 mt-3" role="alert" aria-live="assertive" aria-atomic="true">
+            <span class="toast-body"> Thank you, we will be in touch shortly! </span>
+            <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+        </form>
       </div>
-
-
-      <form id="contact" class="col g-2 needs-validation" novalidate>
-        <div class="col-md-8">
-          <label for="validationCustom01" class="form-label"><h5>Name <strong style="color: red;">*</strong></h5></label>
-          <div class="input-group has-validation">
-            <span class="input-group-text border-end-0 border-primary border-2" id="inputGroupPrepend">🧑</span>
-            <input type="text" class="form-control border border-primary border-2" id="enter_name" validationCustom01="validationCustom01" placeholder="Enter your Name" required />
-            <div class="invalid-feedback">
-              Please enter your name!
-            </div>
-        </div>
-        </div>
-        <div class="col-md-8">
-          <label for="validationCustomUsername" class="form-label"><h5>Email <strong style="color: red;">*</strong></h5></label>
-          <div class="input-group has-validation">
-            <span class="input-group-text border-end-0 border-primary border-2" id="inputGroupPrepend">📬</span>
-            <input type="email" class="form-control border border-primary border-2" id="enter_email" id="validationCustomUsername" placeholder="name@example.com" required/>
-            <div class="invalid-feedback">
-              Please enter your email!
-            </div>
-          </div>
-        </div>
-        <div class="col-md-10">
-          <label for="validationCustom03" class="form-label"><h5>Message <strong style="color: red;">*</strong></h5></label>
-          <textarea class="form-control border border-primary border-2" id="enter_message" id="validationCustom03" placeholder="Type your message" rows="6" required></textarea>
-          <div class="invalid-feedback">
-            Please enter a message!
-          </div>
-        </div>
-        <div class="col-12">
-          <button class="btn btn-primary" id="btnShow" type="submit">SUBMIT</button>
-        </div>
-        <div id="smptst" class="toast d-flex align-items-center text-white bg-dark border-0 mt-3" role="alert" aria-live="assertive" aria-atomic="true">
-          <span class="toast-body">
-            Thank you, we will be in touch shortly! 
-          </span>
-          <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-      </form>
-      
-      
+      <div class="col-md-6 align-items-center d-flex" id="contact-image">
+        <img class="c mx-auto my-auto" src="../assets/undraw_contact_us_15o2.png" alt="" width="70%" />
+      </div>
     </div>
-    <div class="col-md-6 align-items-center d-flex" id="contact-image" >
-      <img class=" c mx-auto my-auto" src="../assets/undraw_contact_us_15o2.png" alt="" width="70%">
-    </div>
-    </div>
-  
-
-    
-
-    
 
     <script src="./firebase/firebase.js"></script>
     <script src="app.js"></script>
     <script>
-      $(function() {
-            $('#btnShow').click(function() {
-                $('#smptst').toast('show');
-            });
-        });
-
-
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function () {
-        'use strict'
+        "use strict";
 
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
+        var forms = document.querySelectorAll(".needs-validation");
 
         // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-          .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
               if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
+                event.preventDefault();
+                event.stopPropagation();
               }
 
-              form.classList.add('was-validated')
-            }, false)
-          })
-      })()
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
     </script>
   </body>
 </html>

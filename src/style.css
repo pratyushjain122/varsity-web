@@ -115,10 +115,21 @@ i{
 .contact-us{
   /* width: 50%; */
   padding: 100px;
+  width: 100%;
 }
+
 .contact-us div{
   margin-bottom: 20px;
 }
+
+.nav-link:hover{
+  text-decoration: underline;
+}
+
+img.c {
+  vertical-align: center;
+}
+
 
 @media (max-width: 991px) {
   .showcase,
@@ -148,8 +159,6 @@ i{
   }
 }
 
-.nav-link:hover{
-  text-decoration: underline;
-}
+
 
 

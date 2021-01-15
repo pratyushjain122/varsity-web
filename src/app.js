@@ -28,10 +28,10 @@ function handleForm() {
         });
       //toast_handler();
       $("#smptst").toast("show");
+
     } else {
       console.log("empty value");
     }
-
     form.reset();
   });
 }

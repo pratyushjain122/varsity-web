@@ -91,18 +91,15 @@
       <div class="col-md-6">
         <form id="contact" class="col g-2 needs-validation" novalidate>
           <div class="col-md-8">
-            <label for="validationCustom01" class="form-label"
-              ><h5>Name <strong style="color: red">*</strong></h5></label
-            >
+            <label for="validationCustom01" class="form-label"><h5>Name <strong style="color: red">*</strong></h5></label>
             <div class="input-group has-validation">
               <span class="input-group-text border-end-0 border-primary border-2" id="inputGroupPrepend">🧑</span>
               <input type="text" class="form-control border border-primary border-2" id="enter_name" validationCustom01="validationCustom01" placeholder="Enter your Name" required />
               <div class="invalid-feedback">Please enter your name!</div>
             </div>
+          </div>
             <div class="col-md-8">
-              <label for="validationCustomUsername" class="form-label"
-                ><h5>Email <strong style="color: red">*</strong></h5></label
-              >
+              <label for="validationCustomUsername" class="form-label"><h5>Email <strong style="color: red">*</strong></h5></label>
               <div class="input-group has-validation">
                 <span class="input-group-text border-end-0 border-primary border-2" id="inputGroupPrepend">📬</span>
                 <input type="email" class="form-control border border-primary border-2" id="enter_email" id="validationCustomUsername" placeholder="name@example.com" required />
@@ -110,13 +107,10 @@
               </div>
             </div>
             <div class="col-md-10">
-              <label for="validationCustom03" class="form-label"
-                ><h5>Message <strong style="color: red">*</strong></h5></label
-              >
+              <label for="validationCustom03" class="form-label"><h5>Message <strong style="color: red">*</strong></h5></label>
               <textarea class="form-control border border-primary border-2" id="enter_message" id="validationCustom03" placeholder="Type your message" rows="6" required></textarea>
               <div class="invalid-feedback">Please enter a message!</div>
             </div>
-          </div>
           <div class="col-12">
             <button class="btn btn-primary" id="btnShow" type="submit">SUBMIT</button>
           </div>
@@ -171,7 +165,7 @@
     <script src="app.js"></script>
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function () {
+      (function form() {
         "use strict";
 
         // Fetch all the forms we want to apply custom Bootstrap validation styles to

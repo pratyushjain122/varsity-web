@@ -13,7 +13,7 @@ function handleEventForm() {
     const image_files = document.getElementById("formFileMultiple").value;
     const date = document.getElementById("example-date-input").value;
     const uniqkey = Math.floor(Math.random() * 90000) + 10000;
-    const file = document.getElementById("formFileMultiple").files[0];
+    const file = document.getElementById("formFileMultiple").files;
     const EventRef = storageRef.child("New Event/" + uniqkey);
 
     console.log(heading);
@@ -21,6 +21,8 @@ function handleEventForm() {
     console.log(image_files);
     console.log(date);
     console.log(uniqkey);
+    console.log(file);
+    console.log(typeof file);
 
     if (heading != null && description != null && image_files != null && date != null) {
       console.log("all values set");
@@ -44,7 +46,7 @@ function handleEventForm() {
           console.error("Error adding document: ", error);
         });
 
-      upload_files(file, EventRef);
+      upload_files(file, EventRef, uniqkey);
 
       $("#smptst").toast("show");
     } else {
@@ -54,10 +56,30 @@ function handleEventForm() {
   });
 }
 
-function upload_files(file, EventRef) {
-  EventRef.put(file).then(function (snapshot) {
-    console.log("Uploaded a blob or file!");
-  });
+function upload_files(file, EventRef, uniqkey) {
+  for (const key in file) {
+    if (file.hasOwnProperty(key)) {
+      const element = file[key];
+      const metadata = {
+        contentType: file.type,
+      };
+
+      const path = EventRef.fullPath;
+
+      console.log(element);
+      console.log(element.name);
+      console.log(key);
+      console.log(file[key]);
+
+      EventRef.child(uniqkey + "-" + key)
+        .put(file[key], metadata)
+        .then(function (snapshot) {
+          console.log(path);
+          console.log("Uploaded a blob or file!");
+        })
+        .catch((e) => console.log(e));
+    }
+  }
 }
 
 handleEventForm();

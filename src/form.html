@@ -12,9 +12,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
     <style>
-      .event-form{
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      .event-form, h2{
         padding-left: 100px;
         margin-top: 30px;
+      }
+
+
+      @media (max-width: 990px) {
+        .event-form, h2{
+          padding-left: 40px;
+          padding-right: 40px;
+        }
       }
     </style>
 </head>
@@ -25,7 +39,7 @@
     <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
         <div class="container-fluid">
           <a href="../src/index.html"><img src="../assets/logo1.png" alt="" /></a>
-          <a class="navbar-brand" href="../src/index.html"> V@rsity Care</a>
+          <a class="navbar-brand" href="../src/index.html">&nbsp; V@rsity Care</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -55,12 +69,19 @@
               <li class="nav-item">
                 <a class="nav-link text-dark" href="#">Members</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="../src/form.html"><i class="fas fa-user-lock"></i></a>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
 
       <!-- EVENT FORMS -->
+
+      <h2>
+        EVENTS FORM
+      </h2>
 
       <form class="col-md-6 event-form">
 

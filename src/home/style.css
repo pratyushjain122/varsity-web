@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
-*,html {
+*,
+html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
   margin: 0;
   padding: 0;
 }
@@ -36,12 +37,11 @@ header {
   transition: 0.5s;
   padding-top: 0;
   padding-bottom: 0;
-  background-image: url(../assets/Symbiosis_Institute_Of_Technol.png);
+  background-image: url(../../assets/Symbiosis_Institute_Of_Technol.png);
   background-repeat: no-repeat;
   background-size: cover;
   /* opacity: 0.5; */
 }
-
 
 .text {
   position: relative;
@@ -114,54 +114,54 @@ header {
   transform: scale(0.5) translateY(-15px);
 }
 
-i{
+i {
   color: black;
-} 
+}
 
-.contact-us, .about-us{
+.contact-us,
+.about-us {
   padding: 100px;
   width: 100%;
   padding-bottom: 0;
   margin-right: 0;
 }
 
-.contact-us div{
+.contact-us div {
   margin-bottom: 20px;
 }
 
-.nav-link:hover{
+.nav-link:hover {
   border-bottom: 2px solid black;
 }
 
-.about-us{
+.about-us {
   margin-bottom: 20px;
   margin-left: 10px;
   width: 100%;
-  background: #ECE9E6;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ece9e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffffff, #ece9e6); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff, #ece9e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.about_us{
+.about_us {
   padding: 30px 30px 30px 30px;
   margin: 30px;
   height: 500px;
 }
 
-
-.head{
+.head {
   font-size: 2.5em;
 }
 
-.card-text{
+.card-text {
   letter-spacing: 1.2px;
 }
 
 @media (max-width: 991px) {
-
-  *, html{
+  *,
+  html {
     margin: 0;
-    padding: 0; 
+    padding: 0;
   }
   .showcase,
   .showcase header {
@@ -173,27 +173,24 @@ i{
   .text h3 {
     font-size: 2em;
   }
-  .showcase{
+  .showcase {
     height: 100%;
   }
-  .contact-us, .about-us {
+  .contact-us,
+  .about-us {
     padding: 40px;
   }
 
-  #message{
+  #message {
     min-width: 0;
     width: auto;
   }
 
-  .head{
+  .head {
     font-size: 1.5em;
   }
 
-  img.c{
+  img.c {
     display: none;
   }
 }
-
-
-
-

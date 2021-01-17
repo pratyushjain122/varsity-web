@@ -140,7 +140,7 @@ i {
   margin-bottom: 20px;
 }
 
-.nav-link:hover {
+.navbar .nav-link:hover {
   border-bottom: 2px solid black;
 }
 
@@ -170,6 +170,53 @@ i {
 
 .card-text {
   letter-spacing: 1.2px;
+}
+
+
+.container {
+  margin-top: 100px
+}
+
+.counter-box {
+  display: block;
+  background: #f6f6f6;
+  padding: 40px 20px 37px;
+  text-align: center
+}
+
+.counter-box p {
+  margin: 5px 0 0;
+  padding: 0;
+  color: #909090;
+  font-size: 18px;
+  font-weight: 500
+}
+
+.counter-box h6 {
+  font-size: 60px;
+  margin: 0 0 15px;
+  color: #d2d2d2
+}
+
+.counter {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #666;
+  line-height: 28px
+}
+
+.counter-box.colored {
+  /* background: #3acf87 */
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+}
+
+.counter-box.colored p,
+.counter-box.colored i,
+.counter-box.colored .counter {
+  color: #fff
 }
 
 @media (max-width: 991px) {

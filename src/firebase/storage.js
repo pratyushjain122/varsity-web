@@ -1,7 +1,7 @@
 function display_image(image) {
 
     image.getDownloadURL().then(function(url){
-        var html_insert = '<div class="item"><img class="image" src="' + url + '" alt=""></div>';
+        var html_insert = '<div class="item"><img class="image" src="' + url + '" alt="gallery_image"></div>';
     
         document.getElementById("image-container").innerHTML += html_insert;
   

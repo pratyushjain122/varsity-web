@@ -1,3 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+*, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
 .main-frame
 {
   display: inline-flex;
@@ -6,6 +16,10 @@
   height: auto;
   width: auto;
 
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid black;
 }
 
 .carousel .carousel-item {

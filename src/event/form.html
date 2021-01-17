@@ -25,15 +25,17 @@
         font-family: "Poppins", sans-serif;
       }
 
-      .event-form,
-      h2 {
+      .content {
         padding-left: 100px;
         margin-top: 30px;
       }
 
+      .nav-link:hover {
+        border-bottom: 2px solid black;
+      }
+
       @media (max-width: 990px) {
-        .event-form,
-        h2 {
+        .content {
           padding-left: 40px;
           padding-right: 40px;
         }
@@ -43,11 +45,10 @@
   <body>
     <!-- NAVBAR -->
 
-    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light border-bottom border-2 border-secondary">
       <div class="container-fluid">
-        <a href="../home/index.html"><img src="../../assets/logo1.png" alt="" /></a>
-        <a class="navbar-brand" href="../home/index.html">&nbsp; V@rsity Care</a>
-
+        <a href="../../src/home/index.html"><img src="../../assets/logo1.png" alt="" /></a>
+        <a class="navbar-brand" href="../../src/home/index.html">&nbsp; V@rsity Care</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -72,7 +73,7 @@
               <a class="nav-link text-dark" href="#">📅 Upcoming Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="#">🤝 Collaborations</a>
+              <a class="nav-link text-dark" href="../collaborations/collaboration.html">🤝 Collaborations</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-dark" href="#">👨🏾‍🤝‍👨🏽 Members</a>
@@ -85,39 +86,235 @@
       </div>
     </nav>
 
-    <!-- EVENT FORMS -->
 
-    <h2>EVENTS FORM</h2>
+    
+    <div class="content">
+      
+      <ul class="nav nav-tabs col-md-8" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="upcoming-events-tab" data-bs-toggle="tab" href="#upcoming-events" role="tab" aria-controls="upcoming-events" aria-selected="true">Upcoming Events</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="past-events-tab" data-bs-toggle="tab" href="#past-events" role="tab" aria-controls="past-events" aria-selected="false">Past Events</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="gallery-tab" data-bs-toggle="tab" href="#gallery" role="tab" aria-controls="gallery" aria-selected="false">Gallery</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="collaborations-tab" data-bs-toggle="tab" href="#collaborations" role="tab" aria-controls="collaborations" aria-selected="false">Collaborations</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="members-tab" data-bs-toggle="tab" href="#members" role="tab" aria-controls="members" aria-selected="false">Members</a>
+        </li>
+      </ul>
+      <div class="tab-content col-md-4 mt-5" id="myTabContent">
+        <div class="tab-pane fade show active" id="upcoming-events" role="tabpanel" aria-labelledby="upcoming-events-tab">
 
-    <form class="col-md-6 event-form" id="event_form">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Heading</span>
-        <input type="text" class="form-control" id="heading" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
-      </div>
+          <!-- UPCOMING EVENTS FORM -->
 
-      <div class="input-group">
-        <span class="input-group-text">Details</span>
-        <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
-      </div>
+          <h2>UPCOMING EVENTS FORM</h2>
 
-      <div class="my-3 row">
-        <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
-        <div class="col-md-6">
-          <input class="form-control col-md-6" type="file" id="formFileMultiple" multiple />
+          <form class="col-md-12 event-form" id="event_form">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Heading</span>
+              <input type="text" class="form-control" id="heading" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-text">Details</span>
+              <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
+            </div>
+
+            <div class="my-3 row">
+              <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
+              <div class="col-md-10">
+                <input class="form-control" type="file" id="formFileMultiple" multiple />
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <label for="example-date-input" class="col-2 col-form-label">Date</label>
+              <div class="col-10">
+                <input class="form-control" type="date" value="" id="example-date-input" />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+            <div id="smptst" class="toast d-flex align-items-center text-white bg-dark border-0 mt-3" role="alert" aria-live="assertive" aria-atomic="true">
+              <span class="toast-body"> Event has been uploaded! </span>
+              <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </form>
+        </div>
+        <div class="tab-pane fade" id="past-events" role="tabpanel" aria-labelledby="past-events-tab">
+
+          <!-- PAST EVENTS FORM -->
+
+          <h2>PAST EVENTS FORM</h2>
+
+          <form class="col-md-12 event-form" id="event_form">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Heading</span>
+              <input type="text" class="form-control" id="heading" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-text">Details</span>
+              <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
+            </div>
+
+            <div class="my-3 row">
+              <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
+              <div class="col-md-10">
+                <input class="form-control" type="file" id="formFileMultiple" multiple />
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <label for="example-date-input" class="col-2 col-form-label">Date</label>
+              <div class="col-10">
+                <input class="form-control" type="date" value="" id="example-date-input" />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+
+            <div id="smptst" class="toast d-flex align-items-center text-white bg-dark border-0 mt-3" role="alert" aria-live="assertive" aria-atomic="true">
+              <span class="toast-body"> Event has been uploaded! </span>
+              <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </form>
+        </div>
+        <div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
+
+          <!-- GALLERY FORM -->
+
+          <h2>GALLERY FORM</h2>
+
+          <form class="col-md-12 event-form" id="event_form">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Heading</span>
+              <input type="text" class="form-control" id="heading" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-text">Details</span>
+              <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
+            </div>
+
+            <div class="my-3 row">
+              <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
+              <div class="col-md-10">
+                <input class="form-control" type="file" id="formFileMultiple" multiple />
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <label for="example-date-input" class="col-2 col-form-label">Date</label>
+              <div class="col-10">
+                <input class="form-control" type="date" value="" id="example-date-input" />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+
+            <div id="smptst" class="toast d-flex align-items-center text-white bg-dark border-0 mt-3" role="alert" aria-live="assertive" aria-atomic="true">
+              <span class="toast-body"> Gallery has been updated! </span>
+              <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </form>
+        </div>
+        <div class="tab-pane fade" id="collaborations" role="tabpanel" aria-labelledby="collaborations-tab">
+
+          <!-- COLLABORATIONS FORM -->
+
+          <h2>COLLABORATIONS FORM</h2>
+
+          <form class="col-md-12 event-form" id="event_form">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Heading</span>
+              <input type="text" class="form-control" id="heading" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-text">Details</span>
+              <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
+            </div>
+
+            <div class="my-3 row">
+              <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
+              <div class="col-md-10">
+                <input class="form-control" type="file" id="formFileMultiple" multiple />
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <label for="example-date-input" class="col-2 col-form-label">Date</label>
+              <div class="col-10">
+                <input class="form-control" type="date" value="" id="example-date-input" />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+
+            <div id="smptst" class="toast d-flex align-items-center text-white bg-dark border-0 mt-3" role="alert" aria-live="assertive" aria-atomic="true">
+              <span class="toast-body"> New collaboration added! </span>
+              <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </form>
+        </div>
+        <div class="tab-pane fade" id="members" role="tabpanel" aria-labelledby="members-tab">
+
+          <!-- MEMBERS FORM -->
+
+          <h2>MEMBERS FORM</h2>
+
+          <form class="col-md-12 event-form" id="event_form">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Heading</span>
+              <input type="text" class="form-control" id="heading" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-text">Details</span>
+              <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
+            </div>
+
+            <div class="my-3 row">
+              <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
+              <div class="col-md-10">
+                <input class="form-control" type="file" id="formFileMultiple" multiple />
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <label for="example-date-input" class="col-2 col-form-label">Date</label>
+              <div class="col-10">
+                <input class="form-control" type="date" value="" id="example-date-input" />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+
+            <div id="smptst" class="toast d-flex align-items-center text-white bg-dark border-0 mt-3" role="alert" aria-live="assertive" aria-atomic="true">
+              <span class="toast-body"> Member updated! </span>
+              <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </form>
         </div>
       </div>
-
-      <div class="input-group mb-3">
-        <label for="example-date-input" class="col-2 col-form-label">Date</label>
-        <div class="col-10">
-          <input class="form-control" type="date" value="" id="example-date-input" />
-        </div>
-      </div>
-
-      <div class="col-12">
-        <button class="btn btn-primary" type="submit">Submit form</button>
-      </div>
-    </form>
+    </div>
+    
     <script src="../firebase/firebase.js"></script>
     <script src="form.js"></script>
   </body>

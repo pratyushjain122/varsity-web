@@ -33,3 +33,9 @@ body::-webkit-scrollbar-thumb {
 #content{
     padding: 50px 100px 100px 100px;
 }
+
+@media(max-width: 480px){
+  #content{
+    padding: 40px;
+}
+}

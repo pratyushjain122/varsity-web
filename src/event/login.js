@@ -30,6 +30,8 @@ function signIn() {
             if (user.email == doc.data().Email) {
               console.log("ID matched");
               window.location.assign("../event/form.html");
+            } else {
+              $("#error-login").toast("show");
             }
           } else {
             // doc.data() will be undefined in this case

@@ -82,4 +82,8 @@ function upload_files(file, EventRef, uniqkey) {
   }
 }
 
+function check_tab(IDDD) {
+  console.log(IDDD);
+}
+
 handleEventForm();

@@ -1,24 +1,22 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 
-*, html {
+*,
+html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 
-
-.main-frame
-{
+.main-frame {
   display: inline-flex;
 }
-.items{
+.items {
   height: auto;
   width: auto;
-
 }
 
-.nav-link:hover {
+.navbar .nav-link:hover {
   border-bottom: 2px solid black;
 }
 
@@ -28,24 +26,24 @@
 }
 
 .carousel-item img {
-    position: absolute;
-    object-fit:cover;
-    top: 0;
-    left: 0;
-    min-height: 500px;
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  min-height: 500px;
 }
-.container{
+.container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
-  
+
   height: auto;
   width: 100%;
   margin: 10px;
   padding: 5px;
   justify-content: space-evenly;
 }
-.item{
+.item {
   /* display: flex; */
   /* margin: 10px; */
   padding: 5px;
@@ -53,9 +51,8 @@
   width: 30%;
   height: auto;
   justify-content: center;
-  
 }
-.item img{
+.item img {
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;

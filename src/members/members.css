@@ -25,17 +25,3 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: gray;
 }
-
-.navbar .nav-link:hover {
-  border-bottom: 2px solid black;
-}
-
-#content{
-    padding: 50px 100px 100px 100px;
-}
-
-@media(max-width: 480px){
-  #content{
-    padding: 40px;
-}
-}

@@ -3,57 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Varsity Care</title>
+    <title>V@rsity Care</title>
     <link rel="icon" href="../../assets/logo3.png" type="image/gif" sizes="16x16" />
     <link rel="stylesheet" href="style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+      integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
 
     <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
   </head>
   <body>
-
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light border-bottom border-2 border-secondary">
       <div class="container-fluid">
         <a href="../../src/home/index.html"><img src="../../assets/logo1.png" alt="" /></a>
         <a class="navbar-brand" href="../../src/home/index.html">&nbsp; V@rsity Care</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active text-dark" aria-current="page" href="../home/index.html">🏠 Home</a>
+              <a class="nav-link active text-dark" aria-current="page" href="../home/index.html"> Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="../home/index.html#about-us">🧑 About Us</a>
+              <a class="nav-link text-dark" href="../home/index.html#about-us"> About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="../home/index.html#contact-us">📞 Contact Us</a>
+              <a class="nav-link text-dark" href="../home/index.html#contact-us"> Contact Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="#">📅 Past Events</a>
+              <a class="nav-link text-dark" href="#"> Past Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="../gallery/gallery.html">📷 Gallery</a>
+              <a class="nav-link text-dark" href="../gallery/gallery.html"> Gallery</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="#">📅 Upcoming Events</a>
+              <a class="nav-link text-dark" href="#"> Upcoming Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="../collaborations/collaboration.html">🤝 Collaborations</a>
+              <a class="nav-link text-dark" href="../collaborations/collaboration.html"> Collaborations</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="#">👨🏾‍🤝‍👨🏽 Members</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="../event/form.html"><i class="fas fa-user-lock" style="border: 1px solid black; padding: 5px; border-radius: 20px"></i></a>
+              <a class="nav-link text-dark" href="../members/members.html"> Members</a>
             </li>
           </ul>
         </div>
@@ -62,61 +84,78 @@
 
     <!-- CONTENT -->
     <div>
-
-    <!-- LANDING PAGE -->
-    <div class="showcase">
-      <header></header>
-      <div class="text">
-        <h2>V@rsity Care</h2>
-        <h3>
-          Social club of <br />
-          Symbiosis Institute of Technology
-        </h3>
-        <p>V@rSITy Care, the social awareness club at SIT, aims to bring about a change in the society by inculcating empathy, compassion and a sense of social responsibility in young engineers.</p>
-        <a href="#">Upcoming Events</a>
+      <!-- LANDING PAGE -->
+      <div class="showcase">
+        <header></header>
+        <div class="text">
+          <h2>V@rsity Care</h2>
+          <h3>
+            Social club of <br />
+            Symbiosis Institute of Technology
+          </h3>
+          <p>
+            V@rSITy Care, the social awareness club at SIT, aims to bring about a change in the society by inculcating
+            empathy, compassion and a sense of social responsibility in young engineers.
+          </p>
+          <a href="#">Upcoming Events</a>
+        </div>
+        <ul class="social">
+          <li>
+            <a href="https://www.youtube.com/channel/UC9m4r1I6igPbFJIJyp-2TyQ" target="_blank">
+              <i class="fab fa-youtube-square fa-4x"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/varsitycare/" target="_blank">
+              <i class="fab fa-instagram-square fa-4x"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/varsitycaresit/" target="_blank">
+              <i class="fab fa-facebook-square fa-4x"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/VrsityCare1?s=08" target="_blank">
+              <i class="fab fa-twitter-square fa-4x"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/varsity-care/" target="_blank">
+              <i class="fab fa-linkedin fa-4x"></i>
+            </a>
+          </li>
+        </ul>
       </div>
-      <ul class="social">
-        <li>
-          <a href="https://www.youtube.com/channel/UC9m4r1I6igPbFJIJyp-2TyQ" target="_blank"><i class="fab fa-youtube-square fa-4x"></i></a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/varsitycare/" target="_blank"><i class="fab fa-instagram-square fa-4x"></i></a>
-        </li>
-        <li>
-          <a href="https://www.facebook.com/varsitycaresit/" target="_blank"><i class="fab fa-facebook-square fa-4x"></i></a>
-        </li>
-        <li>
-          <a href="https://twitter.com/VrsityCare1?s=08" target="_blank"><i class="fab fa-twitter-square fa-4x"></i></a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/company/varsity-care/" target="_blank"><i class="fab fa-linkedin fa-4x"></i></a>
-        </li>
-      </ul>
-    </div>
 
-    <!-- ABOUT US -->
-    <div class="about-us row" id="about-us">
-      <div>
-        <h2 class="head" style="color: black"><i class="fas fa-address-card"></i> About Us</h2>
-      </div>
-      <div class="card text-white bg-dark mb-30 py-2">
-        <div class="row g-0">
-          <div class="col-md-6">
-            <img id="about-us-image" src="../../assets/Symbiosis_Institute_Of_Technol.png" alt="..." width="100%" />
-          </div>
-          <div class="col-md-6">
-            <div class="card-body">
-              <p class="card-text">
-                V@rSITy Care, the social awareness club at SIT, aims to bring about a change in the society by inculcating empathy, compassion and a sense of social responsibility in young engineers. We believe in the importance of creating a socially conscious environment and empowering youth to work towards India’s challenges. <br />
-                <br />
-                With this belief, V@rSITy Care intends to develop a culture of participation in social development oriented activities and taking up initiative among students by providing them a platform to learn, interact and act.
-              </p>
+      <!-- ABOUT US -->
+      <div class="about-us row" id="about-us">
+        <div>
+          <h2 class="head" style="color: black"><i class="fas fa-address-card"></i> About Us</h2>
+        </div>
+        <div class="card text-white bg-dark mb-30 py-2">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <img id="about-us-image" src="../../assets/Symbiosis_Institute_Of_Technol.png" alt="..." width="100%" />
+            </div>
+            <div class="col-md-6">
+              <div class="card-body">
+                <p class="card-text">
+                  V@rSITy Care, the social awareness club at SIT, aims to bring about a change in the society by
+                  inculcating empathy, compassion and a sense of social responsibility in young engineers. We believe in
+                  the importance of creating a socially conscious environment and empowering youth to work towards
+                  India’s challenges. <br />
+                  <br />
+                  With this belief, V@rSITy Care intends to develop a culture of participation in social development
+                  oriented activities and taking up initiative among students by providing them a platform to learn,
+                  interact and act.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- <div class="col-md-12">
+        <!-- <div class="col-md-12">
         <h2 class="head">Our Mission</h2>
         <p>To inspire the youth to adopt a socially conscious outlook by installing a sense of responsibility towards the society and develop a culture of participation in impact oriented activities.</p>
       </div>
@@ -125,132 +164,188 @@
         <h2 class="head">Our Vision</h2>
         <p>To become a happy, healthy and supportive society by creating a sense of social responsibility and leadership among the Youth of India.</p>
       </div> -->
-      <div class="col-md-6 px-0 py-0 mt-5 d-flex">
-        <div class="card border-dark mx-auto my-auto" style="max-width: 30rem;">
-          <div class="card-header pt-3 pb-2"><h3>Our Mission</h3></div>
-          <div class="card-body text-dark">
-            <p class="card-text">To inspire the youth to adopt a socially conscious outlook by installing a sense of responsibility towards the society and develop a culture of participation in impact oriented activities.</p>
+        <div class="col-md-6 px-0 py-0 mt-5 d-flex">
+          <div class="card border-dark mx-auto my-auto" style="max-width: 30rem">
+            <div class="card-header pt-3 pb-2"><h3>Our Mission</h3></div>
+            <div class="card-body text-dark">
+              <p class="card-text">
+                To inspire the youth to adopt a socially conscious outlook by installing a sense of responsibility
+                towards the society and develop a culture of participation in impact oriented activities.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 px-0 py-0 mt-5 d-flex">
-        <div class="card border-dark mx-auto my-auto h-100" style="max-width: 30rem;">
-          <div class="card-header pt-3 pb-2"><h3>Our Vision</h3></div>
-          <div class="card-body text-dark">
-            <p class="card-text">To become a happy, healthy and supportive society by creating a sense of social responsibility and leadership among the Youth of India.</p>
+        <div class="col-md-6 px-0 py-0 mt-5 d-flex">
+          <div class="card border-dark mx-auto my-auto h-100" style="max-width: 30rem">
+            <div class="card-header pt-3 pb-2"><h3>Our Vision</h3></div>
+            <div class="card-body text-dark">
+              <p class="card-text">
+                To become a happy, healthy and supportive society by creating a sense of social responsibility and
+                leadership among the Youth of India.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+
         <!-- COUNTER -->
-      <div class="container mt-5 pt-5">
-        <div class="row" id="counter">
+        <div class="container mt-5 pt-5">
+          <div class="row" id="counter">
             <div class="four col-md-3">
-                <div class="counter-box colored">
-                  <h6>👨🏾‍🤝‍👨🏽</h6>
-                  <span class="counter" data-count="4500"></span>
-                  <p>MEMBERS</p>
-                </div>
+              <div class="counter-box colored">
+                <h6><i class="fas fa-user"></i></h6>
+                <span class="counter" data-count="4500"></span>
+                <p>MEMBERS</p>
+              </div>
             </div>
             <div class="four col-md-3">
-                <div class="counter-box colored"> 
-                  <h6>📅</h6> 
-                  <span class="counter" data-count="2500"></span>
-                  <p>EVENTS</p>
-                </div>
+              <div class="counter-box colored">
+                <h6><i class="fas fa-calendar-alt"></i></h6>
+                <span class="counter" data-count="2500"></span>
+                <p>EVENTS</p>
+              </div>
             </div>
             <div class="four col-md-3">
-                <div class="counter-box colored"> 
-                  <h6>🧑</h6>
-                  <span class="counter" data-count="1200"></span>
-                  <p>SOCIAL MEDIA FOLLOWERS</p>
-                </div>
+              <div class="counter-box colored">
+                <h6><i class="fas fa-users"></i></h6>
+                <span class="counter" data-count="1200"></span>
+                <p>SOCIAL MEDIA FOLLOWERS</p>
+              </div>
             </div>
             <div class="four col-md-3">
-                <div class="counter-box colored"> 
-                  <h6>🤝</h6> 
-                  <span class="counter" data-count="340"></span>
-                  <p>COLLABORATIONS</p>
-                </div>
+              <div class="counter-box colored">
+                <h6><i class="fas fa-hands-helping"></i></h6>
+                <span class="counter" data-count="340"></span>
+                <p>COLLABORATIONS</p>
+              </div>
             </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- CONTACT US -->
-    <div class="contact-us row mb-0 pb-0" id="contact-us">
-      <div class="text">
-        <h3 style="color: black">📱 Contact Us</h3>
-      </div>
-      <div class="col-md-6">
-        <form id="contact" class="col g-2 needs-validation" novalidate>
-          <div class="col-md-8">
-            <label for="validationCustom01" class="form-label"
-              ><h5>Name <strong style="color: red">*</strong></h5></label
-            >
-            <div class="input-group has-validation">
-              <span class="input-group-text border-end-0 border-primary border-2" id="inputGroupPrepend">🧑</span>
-              <input type="text" class="form-control border border-primary border-2" id="enter_name" validationCustom01="validationCustom01" placeholder="Enter your Name" required />
-              <div class="invalid-feedback">Please enter your name!</div>
+      <!-- CONTACT US -->
+      <div class="contact-us row mb-0 pb-0" id="contact-us">
+        <div class="text">
+          <h3 style="color: black">📱 Contact Us</h3>
+        </div>
+        <div class="col-md-6">
+          <form id="contact" class="col g-2 needs-validation" novalidate>
+            <div class="col-md-8">
+              <label for="validationCustom01" class="form-label">
+                <h5>Name <strong style="color: red">*</strong></h5>
+              </label>
+              <div class="input-group has-validation">
+                <span class="input-group-text border-end-0 border-primary border-2" id="inputGroupPrepend">🧑</span>
+                <input
+                  type="text"
+                  class="form-control border border-primary border-2"
+                  id="enter_name"
+                  validationCustom01="validationCustom01"
+                  placeholder="Enter your Name"
+                  required
+                />
+                <div class="invalid-feedback">Please enter your name!</div>
+              </div>
             </div>
-          </div>
-          <div class="col-md-8">
-            <label for="validationCustomUsername" class="form-label"
-              ><h5>Email <strong style="color: red">*</strong></h5></label
-            >
-            <div class="input-group has-validation">
-              <span class="input-group-text border-end-0 border-primary border-2" id="inputGroupPrepend">📬</span>
-              <input type="email" class="form-control border border-primary border-2" id="enter_email" id="validationCustomUsername" placeholder="name@example.com" required />
-              <div class="invalid-feedback">Please enter your email!</div>
+            <div class="col-md-8">
+              <label for="validationCustomUsername" class="form-label">
+                <h5>Email <strong style="color: red">*</strong></h5>
+              </label>
+              <div class="input-group has-validation">
+                <span class="input-group-text border-end-0 border-primary border-2" id="inputGroupPrepend">📬</span>
+                <input
+                  type="email"
+                  class="form-control border border-primary border-2"
+                  id="enter_email"
+                  id="validationCustomUsername"
+                  placeholder="name@example.com"
+                  required
+                />
+                <div class="invalid-feedback">Please enter your email!</div>
+              </div>
             </div>
-          </div>
-          <div class="col-md-10">
-            <label for="validationCustom03" class="form-label"
-              ><h5>Message <strong style="color: red">*</strong></h5></label
+            <div class="col-md-10">
+              <label for="validationCustom03" class="form-label">
+                <h5>Message <strong style="color: red">*</strong></h5>
+              </label>
+              <textarea
+                class="form-control border border-primary border-2"
+                id="enter_message"
+                id="validationCustom03"
+                placeholder="Type your message"
+                rows="6"
+                required
+              ></textarea>
+              <div class="invalid-feedback">Please enter a message!</div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" id="btnShow" type="submit">SUBMIT</button>
+            </div>
+            <div
+              id="smptst"
+              class="toast d-flex align-items-center text-white bg-dark border-0 mt-3"
+              role="alert"
+              aria-live="assertive"
+              aria-atomic="true"
             >
-            <textarea class="form-control border border-primary border-2" id="enter_message" id="validationCustom03" placeholder="Type your message" rows="6" required></textarea>
-            <div class="invalid-feedback">Please enter a message!</div>
-          </div>
-          <div class="col-12">
-            <button class="btn btn-primary" id="btnShow" type="submit">SUBMIT</button>
-          </div>
-          <div id="smptst" class="toast d-flex align-items-center text-white bg-dark border-0 mt-3" role="alert" aria-live="assertive" aria-atomic="true">
-            <span class="toast-body"> Thank you, we will be in touch shortly! </span>
-            <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast" aria-label="Close"></button>
-          </div>
-        </form>
+              <span class="toast-body"> Thank you, we will be in touch shortly! </span>
+              <button
+                type="button"
+                class="btn-close btn-close-white ms-auto me-2"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+              ></button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6 align-items-center d-flex" id="contact-image">
+          <img class="c mx-auto my-auto" src="../../assets/undraw_contact_us_15o2.svg" alt="" width="80%" />
+        </div>
       </div>
-      <div class="col-md-6 align-items-center d-flex" id="contact-image">
-        <img class="c mx-auto my-auto" src="../../assets/undraw_contact_us_15o2.svg" alt="" width="80%" />
+
+      <!-- FOOTER -->
+      <div>
+        <ul class="nav h-100 pt-3 navbar-dark bg-dark justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="../home/index.html"><h2>V@RSITY CARE</h2></a>
+          </li>
+        </ul>
+        <ul class="nav h-100 pb-4 navbar-dark bg-dark justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.youtube.com/channel/UC9m4r1I6igPbFJIJyp-2TyQ" target="_blank">
+              <i class="fab fa-youtube-square fa-2x" style="color: white"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.instagram.com/varsitycare/" target="_blank">
+              <i class="fab fa-instagram-square fa-2x" style="color: white"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.facebook.com/varsitycaresit/" target="_blank">
+              <i class="fab fa-facebook-square fa-2x" style="color: white"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/VrsityCare1/" target="_blank">
+              <i class="fab fa-twitter-square fa-2x" style="color: white"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/company/varsity-care/" target="_blank">
+              <i class="fab fa-linkedin fa-2x" style="color: white"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../event/form.html">
+              <i
+                class="fas fa-user-lock fa-lg"
+                style="color: white; border: 1px solid white; padding: 5px; border-radius: 50px"
+              >
+              </i>
+            </a>
+          </li>
+        </ul>
       </div>
-    </div>
-
-
-    <!-- FOOTER -->
-    <div>
-      <ul class="nav h-100 pt-3 navbar-dark bg-dark justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link text-white" href="../home/index.html"><h2> V@RSITY CARE</h2></a>
-        </li>
-      </ul>
-      <ul class="nav h-100 pb-4 navbar-dark bg-dark justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.youtube.com/channel/UC9m4r1I6igPbFJIJyp-2TyQ" target="_blank"><i class="fab fa-youtube-square fa-2x" style="color: white;"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.instagram.com/varsitycare/" target="_blank"><i class="fab fa-instagram-square fa-2x" style="color: white;"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.facebook.com/varsitycaresit/" target="_blank"><i class="fab fa-facebook-square fa-2x" style="color: white;"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/VrsityCare1/" target="_blank"><i class="fab fa-twitter-square fa-2x" style="color: white;"></i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.linkedin.com/company/varsity-care/" target="_blank"><i class="fab fa-linkedin fa-2x" style="color: white;"></i></a>
-        </li>
-      </ul>
-    </div>
-
     </div>
 
     <!-- SCRIPTS -->

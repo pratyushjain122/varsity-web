@@ -27,11 +27,20 @@ function handleForm() {
           console.error("Error adding document: ", error);
         });
       //toast_handler();
-      $("#smptst").toast("show");
+      document
+        .getElementById("toast")
+        .setAttribute("class", "toast d-flex align-items-center text-white bg-success border-0 mt-3");
+      document.getElementById("toast-body").innerHTML = "We will be in touch shortly!";
+      $("#toast").toast("show");
+      form.reset();
     } else {
       console.log("empty value");
+      document
+        .getElementById("toast")
+        .setAttribute("class", "toast d-flex align-items-center text-white bg-danger border-0 mt-3");
+      document.getElementById("toast-body").innerHTML = "Please fill the form!";
+      $("#toast").toast("show");
     }
-    form.reset();
   });
 }
 
@@ -50,7 +59,6 @@ $(window).scroll(function () {
         {
           countNum: countTo,
         },
-
         {
           duration: 5000,
           easing: "swing",

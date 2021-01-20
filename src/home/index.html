@@ -243,7 +243,6 @@
                   placeholder="Enter your Name"
                   required
                 />
-                <div class="invalid-feedback">Please enter your name!</div>
               </div>
             </div>
             <div class="col-md-8">
@@ -260,7 +259,6 @@
                   placeholder="name@example.com"
                   required
                 />
-                <div class="invalid-feedback">Please enter your email!</div>
               </div>
             </div>
             <div class="col-md-10">
@@ -275,25 +273,19 @@
                 rows="6"
                 required
               ></textarea>
-              <div class="invalid-feedback">Please enter a message!</div>
             </div>
             <div class="col-12">
               <button class="btn btn-primary" id="btnShow" type="submit">SUBMIT</button>
             </div>
-            <div
-              id="smptst"
-              class="toast d-flex align-items-center text-white bg-dark border-0 mt-3"
-              role="alert"
-              aria-live="assertive"
-              aria-atomic="true"
-            >
-              <span class="toast-body"> Thank you, we will be in touch shortly! </span>
+            <div id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <span id="toast-body" class="toast-body"> </span>
               <button
                 type="button"
                 class="btn-close btn-close-white ms-auto me-2"
                 data-bs-dismiss="toast"
                 aria-label="Close"
-              ></button>
+              >
+              </button>
             </div>
           </form>
         </div>
@@ -342,25 +334,5 @@
     <!-- SCRIPTS -->
     <script src="../firebase/firebase.js"></script>
     <script src="app.js"></script>
-    <script>
-      (function form() {
-        "use strict";
-        var forms = document.querySelectorAll(".needs-validation");
-        Array.prototype.slice.call(forms).forEach(function (form) {
-          form.addEventListener(
-            "submit",
-            function (event) {
-              if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-
-              form.classList.add("was-validated");
-            },
-            false
-          );
-        });
-      })();
-    </script>
   </body>
 </html>

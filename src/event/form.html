@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Varsity Care - Events</title>
-    <link rel="icon" href="../../assets/logo3.png" type="image/gif" sizes="16x16" />
+    <link rel="icon" href="../../assets/logo1.png" type="image/gif" sizes="16x16" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -169,14 +169,13 @@
       </ul>
       <!-- FORMS CONTENT -->
       <div class="tab-content col-md-4 mt-5 modal-container" id="myTabContent">
+        <!-- UPCOMING EVENTS FORM -->
         <div
           class="tab-pane fade show active"
           id="upcoming-events"
           role="tabpanel"
           aria-labelledby="upcoming-events-tab"
         >
-          <!-- UPCOMING EVENTS FORM -->
-
           <h2>UPCOMING EVENTS FORM</h2>
 
           <form class="col-md-12 event-form" id="event_form">
@@ -196,14 +195,7 @@
               <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
             </div>
 
-            <div class="my-3 row">
-              <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
-              <div class="col-md-10">
-                <input class="form-control" type="file" id="formFileMultiple" multiple />
-              </div>
-            </div>
-
-            <div class="input-group mb-3">
+            <div class="input-group my-3">
               <label for="example-date-input" class="col-2 col-form-label">Date</label>
               <div class="col-10">
                 <input class="form-control" type="date" value="" id="example-date-input" />
@@ -230,9 +222,8 @@
             </div>
           </form>
         </div>
+        <!-- PAST EVENTS FORM -->
         <div class="tab-pane fade" id="past-events" role="tabpanel" aria-labelledby="past-events-tab">
-          <!-- PAST EVENTS FORM -->
-
           <h2>PAST EVENTS FORM</h2>
 
           <form class="col-md-12 event-form" id="event_form">
@@ -287,27 +278,15 @@
             </div>
           </form>
         </div>
+        <!-- GALLERY FORM -->
         <div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
-          <!-- GALLERY FORM -->
-
           <h2>GALLERY FORM</h2>
 
-          <!-- <form class="col-md-12 event-form" id="gallery_form">
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default">Heading</span>
-              <input
-                type="text"
-                class="form-control"
-                id="heading"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
-              />
-            </div> -->
-
-            <!-- <div class="input-group">
+          <form class="col-md-12 event-form" id="gallery_form">
+            <div class="input-group">
               <span class="input-group-text">Details</span>
               <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
-            </div> -->
+            </div>
 
             <div class="my-3 row">
               <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
@@ -316,12 +295,12 @@
               </div>
             </div>
 
-            <!-- <div class="input-group mb-3">
+            <div class="input-group mb-3">
               <label for="example-date-input" class="col-2 col-form-label">Date</label>
               <div class="col-10">
                 <input class="form-control" type="date" value="" id="example-date-input" />
               </div>
-            </div> -->
+            </div>
 
             <div class="col-12">
               <button class="btn btn-primary" type="submit">Submit form</button>
@@ -344,9 +323,8 @@
             </div>
           </form>
         </div>
+        <!-- COLLABORATIONS FORM -->
         <div class="tab-pane fade" id="collaborations" role="tabpanel" aria-labelledby="collaborations-tab">
-          <!-- COLLABORATIONS FORM -->
-
           <h2>COLLABORATIONS FORM</h2>
 
           <form class="col-md-12 event-form" id="event_form">
@@ -401,14 +379,13 @@
             </div>
           </form>
         </div>
+        <!-- MEMBERS FORM -->
         <div class="tab-pane fade" id="members" role="tabpanel" aria-labelledby="members-tab">
-          <!-- MEMBERS FORM -->
-
           <h2>MEMBERS FORM</h2>
 
           <form class="col-md-12 event-form" id="event_form">
             <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default">Heading</span>
+              <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
               <input
                 type="text"
                 class="form-control"
@@ -418,22 +395,18 @@
               />
             </div>
 
-            <div class="input-group">
-              <span class="input-group-text">Details</span>
-              <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
-            </div>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Select a role</option>
+              <option value="1">Faculty Incharge</option>
+              <option value="2">President</option>
+              <option value="3">Head</option>
+              <option value="4">Member</option>
+            </select>
 
             <div class="my-3 row">
               <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
               <div class="col-md-10">
                 <input class="form-control" type="file" id="formFileMultiple" multiple />
-              </div>
-            </div>
-
-            <div class="input-group mb-3">
-              <label for="example-date-input" class="col-2 col-form-label">Date</label>
-              <div class="col-10">
-                <input class="form-control" type="date" value="" id="example-date-input" />
               </div>
             </div>
 
@@ -461,9 +434,6 @@
       </div>
 
       <!-- MODAL -->
-      <!-- Button trigger modal -->
-
-      <!-- Modal -->
       <div
         class="modal fade"
         id="staticBackdrop"
@@ -514,6 +484,7 @@
         </li>
       </ul>
     </div>
+
     <!-- SCRIPTS -->
     <script src="../firebase/firebase.js"></script>
     <!-- <script src="login.js"></script> -->

@@ -3,7 +3,7 @@ var storageRef = storage.ref();
 
 function display_image(image) {
   image.getDownloadURL().then(function (url) {
-    var html_insert = '<div class="item"><img class="image" src="' + url + '" alt="gallery_image"></div>';
+    var html_insert = '<div class="item col-md-4"><img class="image" src="' + url + '" alt="gallery_image"></div>';
 
     document.getElementById("image-container").innerHTML += html_insert;
   });

@@ -10,6 +10,7 @@ function check_tab(IDDD) {
     case "upcoming-events-tab":
       console.log("1");
       handleEventForm(
+        "New Event",
         "upcoming-event_form",
         "#upcoming-toast",
         "upcoming-heading",
@@ -19,11 +20,20 @@ function check_tab(IDDD) {
       break;
     case "past-events-tab":
       console.log("2");
-      handleEventForm("past-event_form", "#past-toast", "past-heading", "past-description", "past-date", "past-file");
+      handleEventForm(
+        "Past Event",
+        "past-event_form",
+        "#past-toast",
+        "past-heading",
+        "past-description",
+        "past-date",
+        "past-file"
+      );
       break;
     case "gallery-tab":
       console.log("3");
       handleEventForm(
+        "Gallery",
         "gallery_form",
         "#gallery-toast",
         null,
@@ -37,6 +47,7 @@ function check_tab(IDDD) {
     case "collaborations-tab":
       console.log("4");
       handleEventForm(
+        "Collaborations",
         "collaborations_form",
         "#collaboration-toast",
         "collaborations-heading",
@@ -48,6 +59,7 @@ function check_tab(IDDD) {
     case "members-tab":
       console.log("5");
       handleEventForm(
+        "Members",
         "members_form",
         "members-toast",
         "members-heading",
@@ -63,6 +75,7 @@ function check_tab(IDDD) {
 }
 
 function handleEventForm(
+  Ref,
   uniqueEventForm,
   uniqueToast,
   uniqueheading,
@@ -114,6 +127,7 @@ function handleEventForm(
       uniqueObj.role = role;
     }
 
+    const RefCollection = db.collection(Ref);
     const EventRef = storageRef.child("New Event/" + uniqkey);
 
     console.log(heading);
@@ -139,7 +153,7 @@ function handleEventForm(
     // console.log(obj.description);
     // console.log(obj.event_date);
 
-    RefContact.doc(uniqueObj.date)
+    RefCollection.doc(uniqueObj.Title)
       .set(uniqueObj)
       .then(function () {
         console.log("Success");

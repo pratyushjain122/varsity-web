@@ -29,7 +29,7 @@ function handleForm() {
       //toast_handler();
       document
         .getElementById("toast")
-        .setAttribute("class", "toast d-flex align-items-center text-white bg-success border-0 mt-3");
+        .setAttribute("class", "toast d-flex align-items-center text-white bg-success border-0 my-3");
       document.getElementById("toast-body").innerHTML = "We will be in touch shortly!";
       $("#toast").toast("show");
       form.reset();
@@ -37,7 +37,7 @@ function handleForm() {
       console.log("empty value");
       document
         .getElementById("toast")
-        .setAttribute("class", "toast d-flex align-items-center text-white bg-danger border-0 mt-3");
+        .setAttribute("class", "toast d-flex align-items-center text-white bg-danger border-0 my-3");
       document.getElementById("toast-body").innerHTML = "Please fill the form!";
       $("#toast").toast("show");
     }

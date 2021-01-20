@@ -3,55 +3,154 @@ const storage = firebase.storage();
 const RefContact = db.collection("New Event");
 const storageRef = storage.ref();
 
-function handleEventForm() {
-  const form = document.getElementById("event_form");
+function check_tab(IDDD) {
+  console.log(IDDD);
+
+  switch (IDDD) {
+    case "upcoming-events-tab":
+      console.log("1");
+      handleEventForm(
+        "upcoming-event_form",
+        "#upcoming-toast",
+        "upcoming-heading",
+        "upcoming-description",
+        "upcoming-date"
+      );
+      break;
+    case "past-events-tab":
+      console.log("2");
+      handleEventForm("past-event_form", "#past-toast", "past-heading", "past-description", "past-date", "past-file");
+      break;
+    case "gallery-tab":
+      console.log("3");
+      handleEventForm(
+        "gallery_form",
+        "#gallery-toast",
+        null,
+        null,
+        "gallery-date",
+        "gallery-file",
+        null,
+        "gallery-category"
+      );
+      break;
+    case "collaborations-tab":
+      console.log("4");
+      handleEventForm(
+        "collaborations_form",
+        "#collaboration-toast",
+        "collaborations-heading",
+        "collaborations-description",
+        "collaborations-date",
+        "collaborations-files"
+      );
+      break;
+    case "members-tab":
+      console.log("5");
+      handleEventForm(
+        "members_form",
+        "members-toast",
+        "members-heading",
+        null,
+        null,
+        "members-files",
+        "members-email",
+        "members-role"
+      );
+      break;
+  }
+  console.log("out of switch case");
+}
+
+function handleEventForm(
+  uniqueEventForm,
+  uniqueToast,
+  uniqueheading,
+  uniquedescription,
+  uniquedate,
+  uniqueFile,
+  uniqueEmail,
+  uniqueRole
+) {
+  const form = document.getElementById(uniqueEventForm);
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const heading = document.getElementById("heading").value;
-    const description = document.getElementById("description").value;
-    const image_files = document.getElementById("formFileMultiple").value;
-    const date = document.getElementById("example-date-input").value;
+
     const uniqkey = Math.floor(Math.random() * 90000) + 10000;
-    const file = document.getElementById("formFileMultiple").files;
+
+    const checkfileExist = document.getElementById(uniqueFile);
+    const checkdescriptionExist = document.getElementById(uniquedescription);
+    const checkdateExist = document.getElementById(uniquedate);
+    const checkheadingExist = document.getElementById(uniqueheading);
+    const checkemailExist = document.getElementById(uniqueEmail);
+    const checkroleExist = document.getElementById(uniqueRole);
+
+    let file, description, date, heading, email, role;
+
+    const uniqueObj = {};
+
+    if (checkfileExist) {
+      file = document.getElementById(uniqueFile).files;
+    }
+    if (checkdescriptionExist) {
+      description = document.getElementById(uniquedescription).value;
+      uniqueObj.description = description;
+    }
+    if (checkdateExist) {
+      date = document.getElementById(uniquedate).value;
+      uniqueObj.date = date;
+    }
+    if (checkheadingExist) {
+      heading = document.getElementById(uniqueheading).value;
+      uniqueObj.Title = heading;
+    }
+    if (checkemailExist) {
+      email = document.getElementById(uniqueEmail).value;
+      uniqueObj.email = email;
+    }
+    if (checkroleExist) {
+      role = document.getElementById(uniqueRole).value;
+      uniqueObj.role = role;
+    }
+
     const EventRef = storageRef.child("New Event/" + uniqkey);
 
     console.log(heading);
     console.log(description);
-    console.log(image_files);
     console.log(date);
     console.log(uniqkey);
     console.log(file);
     console.log(typeof file);
+    console.log(email);
+    console.log(role);
 
-    if (heading != null && description != null && image_files != null && date != null) {
-      console.log("all values set");
-      const obj = {
-        Title: heading,
-        description: description,
-        event_date: date,
-        key: uniqkey,
-      };
+    console.log("all values set");
+    console.log(uniqueObj);
 
-      console.log(obj.Title);
-      console.log(obj.description);
-      console.log(obj.event_date);
+    // const obj = {
+    //   Title: heading,
+    //   description: description,
+    //   event_date: date,
+    //   key: uniqkey,
+    // };
 
-      RefContact.doc(obj.event_date)
-        .set(obj)
-        .then(function () {
-          console.log("Success");
-        })
-        .catch(function (error) {
-          console.error("Error adding document: ", error);
-        });
+    // console.log(obj.Title);
+    // console.log(obj.description);
+    // console.log(obj.event_date);
 
-      upload_files(file, EventRef, uniqkey);
+    RefContact.doc(uniqueObj.date)
+      .set(uniqueObj)
+      .then(function () {
+        console.log("Success");
+      })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
 
-      $("#smptst").toast("show");
-    } else {
-      console.log("empty value");
-    }
+    upload_files(file, EventRef, uniqkey);
+
+    $(uniqueToast).toast("show");
     form.reset();
   });
 }
@@ -81,12 +180,6 @@ function upload_files(file, EventRef, uniqkey) {
     }
   }
 }
-
-function check_tab(IDDD) {
-  console.log(IDDD);
-}
-
-handleEventForm();
 
 const docRef = db.collection("Credentials").doc("Admin");
 

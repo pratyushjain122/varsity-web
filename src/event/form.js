@@ -118,9 +118,13 @@ function handleEventForm(tab, uniqueEventForm) {
         break;
       }
       case "gallery": {
-        const category = document.getElementById("gallery-category").value;
+        //const category = document.getElementById("gallery-category").value;
         const date = document.getElementById("gallery-date").value;
         const file = document.getElementById("gallery-file").files;
+
+        var e = document.getElementById("gallery-category");
+        var category = e.options[e.selectedIndex].text;
+        console.log(category);
 
         const uniqueObj = {
           category: category,
@@ -200,8 +204,12 @@ function handleEventForm(tab, uniqueEventForm) {
       case "members": {
         const heading = document.getElementById("members-heading").value;
         const email = document.getElementById("members-email").value;
-        const role = document.getElementById("members-role").value;
+        //const role = document.getElementById("members-role").value;
         const file = document.getElementById("members-files").files;
+
+        var e = document.getElementById("members-role");
+        var role = e.options[e.selectedIndex].text;
+        console.log(role);
 
         const uniqueObj = {
           Name: heading,

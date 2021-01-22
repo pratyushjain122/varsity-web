@@ -178,13 +178,13 @@
         >
           <h2>UPCOMING EVENTS FORM</h2>
 
-          <form class="col-md-12 event-form" id="event_form">
+          <form class="col-md-12 event-form" id="upcoming-event_form">
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">Heading</span>
               <input
                 type="text"
                 class="form-control"
-                id="heading"
+                id="upcoming-heading"
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
               />
@@ -192,13 +192,13 @@
 
             <div class="input-group">
               <span class="input-group-text">Details</span>
-              <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
+              <textarea class="form-control" id="upcoming-description" aria-label="With textarea"></textarea>
             </div>
 
             <div class="input-group my-3">
               <label for="example-date-input" class="col-2 col-form-label">Date</label>
               <div class="col-10">
-                <input class="form-control" type="date" value="" id="example-date-input" />
+                <input class="form-control" type="date" value="" id="upcoming-date" />
               </div>
             </div>
 
@@ -206,7 +206,7 @@
               <button class="btn btn-primary" type="submit">Submit form</button>
             </div>
             <div
-              id="smptst"
+              id="upcoming-toast"
               class="toast d-flex align-items-center text-white bg-dark border-0 mt-3"
               role="alert"
               aria-live="assertive"
@@ -222,17 +222,18 @@
             </div>
           </form>
         </div>
+
         <!-- PAST EVENTS FORM -->
         <div class="tab-pane fade" id="past-events" role="tabpanel" aria-labelledby="past-events-tab">
           <h2>PAST EVENTS FORM</h2>
 
-          <form class="col-md-12 event-form" id="event_form">
+          <form class="col-md-12 event-form" id="past-event_form">
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">Heading</span>
               <input
                 type="text"
                 class="form-control"
-                id="heading"
+                id="past-heading"
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
               />
@@ -240,20 +241,20 @@
 
             <div class="input-group">
               <span class="input-group-text">Details</span>
-              <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
+              <textarea class="form-control" id="past-description" aria-label="With textarea"></textarea>
             </div>
 
             <div class="my-3 row">
               <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
               <div class="col-md-10">
-                <input class="form-control" type="file" id="formFileMultiple" multiple />
+                <input class="form-control" type="file" id="past-file" multiple />
               </div>
             </div>
 
-            <div class="input-group mb-3">
+            <div class="input-group my-3">
               <label for="example-date-input" class="col-2 col-form-label">Date</label>
               <div class="col-10">
-                <input class="form-control" type="date" value="" id="example-date-input" />
+                <input class="form-control" type="date" value="" id="past-date" />
               </div>
             </div>
 
@@ -262,7 +263,7 @@
             </div>
 
             <div
-              id="smptst"
+              id="past-toast"
               class="toast d-flex align-items-center text-white bg-dark border-0 mt-3"
               role="alert"
               aria-live="assertive"
@@ -283,22 +284,28 @@
           <h2>GALLERY FORM</h2>
 
           <form class="col-md-12 event-form" id="gallery_form">
-            <div class="input-group">
+            <!-- <div class="input-group">
               <span class="input-group-text">Details</span>
-              <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
-            </div>
+              <textarea class="form-control" id="gallery-description" aria-label="With textarea"></textarea>
+            </div> -->
+
+            <select class="form-select" aria-label="Default select example" id="gallery-category">
+              <option selected>Choose Category</option>
+              <option value="1">Top 5</option>
+              <option value="2">Grid View</option>
+            </select>
 
             <div class="my-3 row">
               <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
               <div class="col-md-10">
-                <input class="form-control" type="file" id="formFileMultiple" multiple />
+                <input class="form-control" type="file" id="gallery-file" multiple />
               </div>
             </div>
 
             <div class="input-group mb-3">
               <label for="example-date-input" class="col-2 col-form-label">Date</label>
               <div class="col-10">
-                <input class="form-control" type="date" value="" id="example-date-input" />
+                <input class="form-control" type="date" value="" id="gallery-date" />
               </div>
             </div>
 
@@ -307,7 +314,7 @@
             </div>
 
             <div
-              id="smptst"
+              id="gallery-toast"
               class="toast d-flex align-items-center text-white bg-dark border-0 mt-3"
               role="alert"
               aria-live="assertive"
@@ -327,13 +334,13 @@
         <div class="tab-pane fade" id="collaborations" role="tabpanel" aria-labelledby="collaborations-tab">
           <h2>COLLABORATIONS FORM</h2>
 
-          <form class="col-md-12 event-form" id="event_form">
+          <form class="col-md-12 event-form" id="collaborations_form">
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">Heading</span>
               <input
                 type="text"
                 class="form-control"
-                id="heading"
+                id="collaborations-heading"
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
               />
@@ -341,20 +348,20 @@
 
             <div class="input-group">
               <span class="input-group-text">Details</span>
-              <textarea class="form-control" id="description" aria-label="With textarea"></textarea>
+              <textarea class="form-control" id="collaborations-description" aria-label="With textarea"></textarea>
             </div>
 
             <div class="my-3 row">
               <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
               <div class="col-md-10">
-                <input class="form-control" type="file" id="formFileMultiple" multiple />
+                <input class="form-control" type="file" id="collaborations-files" multiple />
               </div>
             </div>
 
             <div class="input-group mb-3">
               <label for="example-date-input" class="col-2 col-form-label">Date</label>
               <div class="col-10">
-                <input class="form-control" type="date" value="" id="example-date-input" />
+                <input class="form-control" type="date" value="" id="collaborations-date" />
               </div>
             </div>
 
@@ -363,7 +370,7 @@
             </div>
 
             <div
-              id="smptst"
+              id="collaboration-toast"
               class="toast d-flex align-items-center text-white bg-dark border-0 mt-3"
               role="alert"
               aria-live="assertive"
@@ -383,19 +390,30 @@
         <div class="tab-pane fade" id="members" role="tabpanel" aria-labelledby="members-tab">
           <h2>MEMBERS FORM</h2>
 
-          <form class="col-md-12 event-form" id="event_form">
+          <form class="col-md-12 event-form" id="members_form">
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
               <input
                 type="text"
                 class="form-control"
-                id="heading"
+                id="members-heading"
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
               />
             </div>
 
-            <select class="form-select" aria-label="Default select example">
+            <div class="input-group my-3">
+              <span class="input-group-text" id="basic-addon1">Email</span>
+              <input
+                type="email"
+                class="form-control"
+                id="members-email"
+                placeholder="name@example.com"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+
+            <select class="form-select" aria-label="Default select example" id="members-role">
               <option selected>Select a role</option>
               <option value="1">Faculty Incharge</option>
               <option value="2">President</option>
@@ -406,7 +424,7 @@
             <div class="my-3 row">
               <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
               <div class="col-md-10">
-                <input class="form-control" type="file" id="formFileMultiple" multiple />
+                <input class="form-control" type="file" id="members-files" multiple />
               </div>
             </div>
 
@@ -415,7 +433,7 @@
             </div>
 
             <div
-              id="smptst"
+              id="members-toast"
               class="toast d-flex align-items-center text-white bg-dark border-0 mt-3"
               role="alert"
               aria-live="assertive"

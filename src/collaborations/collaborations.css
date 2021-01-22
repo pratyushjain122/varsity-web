@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 *{
   padding:0px;
@@ -52,6 +53,27 @@ html{
 }
 
 
+.img-card {
+  position: relative;
+  width: 50%;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.card {
+  margin-top: 5%;
+  margin-right: 4% !important;
+  margin-left: 4% !important;
+}
+.carousel .carousel-item {
+  height: 750px;
+  /* width: auto; */
+}
 .carousel-item img {
   position: absolute;
   object-fit: cover;
@@ -133,3 +155,4 @@ html{
   max-width: 100%;
   max-height: 100%;
 }
+

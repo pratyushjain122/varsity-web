@@ -1,57 +1,254 @@
 const db = firebase.firestore();
 const storage = firebase.storage();
-const RefContact = db.collection("New Event");
 const storageRef = storage.ref();
 
-function handleEventForm() {
-  const form = document.getElementById("event_form");
+function check_tab(IDDD) {
+  console.log(IDDD);
 
+  switch (IDDD) {
+    case "upcoming-events-tab":
+      console.log("1");
+      handleEventForm("upcoming", "upcoming-event_form");
+      break;
+    case "past-events-tab":
+      console.log("2");
+      handleEventForm("past", "past-event_form");
+      break;
+    case "gallery-tab":
+      console.log("3");
+      handleEventForm("gallery", "gallery_form");
+      break;
+    case "collaborations-tab":
+      console.log("4");
+      handleEventForm("collaborations", "collaborations_form");
+      break;
+    case "members-tab":
+      console.log("5");
+      handleEventForm("members", "members_form");
+      break;
+    default:
+      console.log("default");
+  }
+  console.log("out of switch case");
+}
+
+function handleEventForm(tab, uniqueEventForm) {
+  const form = document.getElementById(uniqueEventForm);
+  console.log("qq");
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const heading = document.getElementById("heading").value;
-    const description = document.getElementById("description").value;
-    const image_files = document.getElementById("formFileMultiple").value;
-    const date = document.getElementById("example-date-input").value;
+
     const uniqkey = Math.floor(Math.random() * 90000) + 10000;
-    const file = document.getElementById("formFileMultiple").files;
-    const EventRef = storageRef.child("New Event/" + uniqkey);
 
-    console.log(heading);
-    console.log(description);
-    console.log(image_files);
-    console.log(date);
-    console.log(uniqkey);
-    console.log(file);
-    console.log(typeof file);
+    switch (tab) {
+      case "upcoming": {
+        console.log("kitni barrrrrrrrrrrrrrr");
+        const heading = document.getElementById("upcoming-heading").value;
+        const description = document.getElementById("upcoming-description").value;
+        const date = document.getElementById("upcoming-date").value;
 
-    if (heading != null && description != null && image_files != null && date != null) {
-      console.log("all values set");
-      const obj = {
-        Title: heading,
-        description: description,
-        event_date: date,
-        key: uniqkey,
-      };
+        const uniqueObj = {
+          Title: heading,
+          description: description,
+          event_date: date,
+          key: uniqkey,
+        };
 
-      console.log(obj.Title);
-      console.log(obj.description);
-      console.log(obj.event_date);
+        const RefCollection = db.collection("Upcoming Event");
 
-      RefContact.doc(obj.event_date)
-        .set(obj)
-        .then(function () {
-          console.log("Success");
-        })
-        .catch(function (error) {
-          console.error("Error adding document: ", error);
-        });
+        console.log(heading);
+        console.log(description);
+        console.log(date);
+        console.log(uniqkey);
+        console.log("all values set");
+        console.log(uniqueObj);
 
-      upload_files(file, EventRef, uniqkey);
+        RefCollection.doc(uniqueObj.Title)
+          .set(uniqueObj)
+          .then(function () {
+            console.log("Success");
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
 
-      $("#smptst").toast("show");
-    } else {
-      console.log("empty value");
+        $("#upcoming-toast").toast("show");
+
+        break;
+      }
+      case "past": {
+        const heading = document.getElementById("past-heading").value;
+        const description = document.getElementById("past-description").value;
+        const date = document.getElementById("past-date").value;
+        const file = document.getElementById("past-file").files;
+
+        const uniqueObj = {
+          Title: heading,
+          description: description,
+          event_date: date,
+          key: uniqkey,
+        };
+
+        const RefCollection = db.collection("Past Event");
+        const EventRef = storageRef.child("Past Event/" + uniqkey);
+
+        console.log(heading);
+        console.log(description);
+        console.log(date);
+        console.log(uniqkey);
+        console.log(file);
+        console.log(typeof file);
+
+        console.log("all values set");
+        console.log(uniqueObj);
+
+        RefCollection.doc(uniqueObj.Title)
+          .set(uniqueObj)
+          .then(function () {
+            console.log("Success");
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
+
+        upload_files(file, EventRef, uniqkey);
+
+        $("#past-toast").toast("show");
+
+        break;
+      }
+      case "gallery": {
+        //const category = document.getElementById("gallery-category").value;
+        const date = document.getElementById("gallery-date").value;
+        const file = document.getElementById("gallery-file").files;
+
+        var e = document.getElementById("gallery-category");
+        var category = e.options[e.selectedIndex].text;
+        console.log(category);
+
+        const uniqueObj = {
+          category: category,
+          Date: date,
+          key: uniqkey,
+        };
+
+        const RefCollection = db.collection("Gallery");
+        const EventRef = storageRef.child("Gallery/" + uniqkey);
+
+        console.log(category);
+
+        console.log(date);
+        console.log(uniqkey);
+        console.log(file);
+        console.log(typeof file);
+
+        console.log("all values set");
+        console.log(uniqueObj);
+
+        RefCollection.doc(uniqueObj.Date)
+          .set(uniqueObj)
+          .then(function () {
+            console.log("Success");
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
+
+        upload_files(file, EventRef, uniqkey);
+
+        $("#gallery-toast").toast("show");
+
+        break;
+      }
+      case "collaborations": {
+        const heading = document.getElementById("collaborations-heading").value;
+        const description = document.getElementById("collaborations-description").value;
+        const date = document.getElementById("collaborations-date").value;
+        const file = document.getElementById("collaborations-files").files;
+
+        const uniqueObj = {
+          Title: heading,
+          description: description,
+          event_date: date,
+          key: uniqkey,
+        };
+
+        const RefCollection = db.collection("Collaborations");
+        const EventRef = storageRef.child("Collaborations/" + uniqkey);
+
+        console.log(heading);
+        console.log(description);
+        console.log(date);
+        console.log(uniqkey);
+        console.log(file);
+        console.log(typeof file);
+
+        console.log("all values set");
+        console.log(uniqueObj);
+
+        RefCollection.doc(uniqueObj.Title)
+          .set(uniqueObj)
+          .then(function () {
+            console.log("Success");
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
+
+        upload_files(file, EventRef, uniqkey);
+
+        $("#collaboration-toast").toast("show");
+
+        break;
+      }
+      case "members": {
+        const heading = document.getElementById("members-heading").value;
+        const email = document.getElementById("members-email").value;
+        //const role = document.getElementById("members-role").value;
+        const file = document.getElementById("members-files").files;
+
+        var e = document.getElementById("members-role");
+        var role = e.options[e.selectedIndex].text;
+        console.log(role);
+
+        const uniqueObj = {
+          Name: heading,
+          Email: email,
+          Role: role,
+          key: uniqkey,
+        };
+
+        const RefCollection = db.collection("Members");
+        const EventRef = storageRef.child("Members/" + uniqkey);
+
+        console.log(heading);
+
+        console.log(uniqkey);
+        console.log(file);
+        console.log(typeof file);
+        console.log(email);
+        console.log(role);
+
+        console.log("all values set");
+        console.log(uniqueObj);
+
+        RefCollection.doc(uniqueObj.Name)
+          .set(uniqueObj)
+          .then(function () {
+            console.log("Success");
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
+
+        upload_files(file, EventRef, uniqkey);
+
+        $("#members-toast").toast("show");
+
+        break;
+      }
     }
+
     form.reset();
   });
 }
@@ -81,12 +278,6 @@ function upload_files(file, EventRef, uniqkey) {
     }
   }
 }
-
-function check_tab(IDDD) {
-  console.log(IDDD);
-}
-
-handleEventForm();
 
 const docRef = db.collection("Credentials").doc("Admin");
 
@@ -173,3 +364,5 @@ firebase.auth().onAuthStateChanged(function (user) {
     myModal.show();
   }
 });
+
+check_tab("upcoming-events-tab");

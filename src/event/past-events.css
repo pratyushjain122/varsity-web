@@ -31,30 +31,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 #content {
-  background: #232526; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #414345, #232526); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #414345,
-    #232526
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 50px 100px;
-  /* height: 90vh; */
-}
-
-.img {
-  width: 300px;
+  min-height: 100vh;
 }
 
 @media (max-width: 990px) {
   #content {
-    padding: 50px 0px;
-  }
-  #h1 {
-    font-size: 1.5em;
-    padding: 50px 30px;
-  }
-  .card-text {
-    font-size: 0.7em;
+    padding: 40px 20px 0px 20px;
   }
 }

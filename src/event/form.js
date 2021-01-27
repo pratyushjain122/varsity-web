@@ -4,6 +4,92 @@ const storageRef = storage.ref();
 
 let dataEnd;
 
+const docRef = db.collection("Credentials").doc("Admin");
+
+function signIn() {
+  console.log("ss");
+
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      // /** @type {firebase.auth.OAuthCredential} */
+      var credential = result.credential;
+
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      console.log(user);
+
+      docRef
+        .get()
+        .then(function (doc) {
+          if (doc.exists) {
+            console.log("Document data:", doc.data());
+            console.log(user.email);
+            console.log(doc.data().Email);
+
+            if (user.email == doc.data().Email) {
+              console.log("ID matched");
+              window.location.assign("../event/form.html");
+            } else {
+              $("#error-login").toast("show");
+            }
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+          }
+        })
+        .catch(function (error) {
+          console.log("Error getting document:", error);
+        });
+      // ...
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+}
+
+function Logout() {
+  $("#logout").toast("show");
+  console.log("qwerty");
+
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      // Sign-out successful.
+      console.log("Logout successfully");
+    })
+    .catch((error) => {
+      // An error happened.
+    });
+}
+
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    // User is signed in.
+    console.log("Bypassed");
+  } else {
+    console.log("1st time");
+    // No user is signed in.
+    var myModal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {
+      backdrop: "static",
+    });
+    myModal.show();
+  }
+});
+
 function check_tab(IDDD) {
   console.log(IDDD);
 
@@ -63,7 +149,6 @@ function handleEventForm(tab, uniqueEventForm) {
         console.log(description);
         console.log(date);
         console.log(uniqkey);
-        console.log("all values set");
 
         const uniqueObj = {
           Title: heading,
@@ -75,18 +160,12 @@ function handleEventForm(tab, uniqueEventForm) {
         console.log(uniqueObj);
         const EventRef = storageRef.child("Upcoming Event/" + uniqkey);
 
-        RefCollection.doc(uniqueObj.Title)
-          .set(uniqueObj)
-          .then(function () {
-            console.log("Success");
-          })
-          .catch(function (error) {
-            console.error("Error adding document: ", error);
-          });
+        addForm(RefCollection, uniqueObj);
+
+        upload_files(file, EventRef, uniqkey, RefCollection, uniqueObj.Title);
 
         $("#upcoming-toast").toast("show");
 
-        upload_files(file, EventRef, uniqkey);
         form.reset();
         break;
       }
@@ -265,124 +344,71 @@ function handleEventForm(tab, uniqueEventForm) {
   });
 }
 
-function upload_files(file, EventRef, uniqkey) {
-  for (const key in file) {
-    if (file.hasOwnProperty(key)) {
-      const element = file[key];
-      const metadata = {
-        contentType: file.type,
-      };
+async function upload_files(file, EventRef, uniqkey, RefCollection, Title) {
+  console.log(Object.keys(file).length);
 
-      const path = EventRef.fullPath;
+  for (let key = 0; key < Object.keys(file).length; key++) {
+    //if (file.hasOwnProperty(key)) {
+    const element = file[key];
+    const metadata = {
+      contentType: file.type,
+    };
 
-      console.log(element);
-      console.log(element.name);
-      console.log(key);
-      console.log(file[key]);
+    console.log(element.name);
+    console.log(key);
 
-      EventRef.child(uniqkey + "-" + key)
-        .put(file[key], metadata)
-        .then(function (snapshot) {
-          console.log(path);
-          console.log("Uploaded a blob or file!");
-        })
-        .catch((e) => console.log(e));
-    }
+    EventRef.child(uniqkey + "-" + key)
+      .put(file[key], metadata)
+      .then(function (snapshot) {
+        console.log("Uploaded a blob or file!");
+        generateURL(uniqkey, RefCollection, Title);
+      })
+      .catch((e) => console.log(e));
   }
 }
-
-const docRef = db.collection("Credentials").doc("Admin");
-
-function signIn() {
-  console.log("ss");
-
-  var provider = new firebase.auth.GoogleAuthProvider();
-
-  firebase
-    .auth()
-    .signInWithPopup(provider)
-    .then((result) => {
-      // /** @type {firebase.auth.OAuthCredential} */
-      var credential = result.credential;
-
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      console.log(user);
-
-      docRef
-        .get()
-        .then(function (doc) {
-          if (doc.exists) {
-            console.log("Document data:", doc.data());
-            console.log(user.email);
-            console.log(doc.data().Email);
-
-            if (user.email == doc.data().Email) {
-              console.log("ID matched");
-              window.location.assign("../event/form.html");
-            } else {
-              $("#error-login").toast("show");
-            }
-          } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-          }
-        })
-        .catch(function (error) {
-          console.log("Error getting document:", error);
-        });
-      // ...
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
-    });
-}
-
-function Logout() {
-  $("#logout").toast("show");
-  console.log("qwerty");
-
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      // Sign-out successful.
-      console.log("Logout successfully");
-    })
-    .catch((error) => {
-      // An error happened.
-    });
-}
-
-firebase.auth().onAuthStateChanged(function (user) {
-  if (user) {
-    // User is signed in.
-    console.log("Bypassed");
-  } else {
-    console.log("1st time");
-    // No user is signed in.
-    var myModal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {
-      backdrop: "static",
-    });
-    myModal.show();
-  }
-});
 
 check_tab("upcoming-events-tab");
 
-// function dateToTimestamp(date_tab) {
-//   console.log("we are in");
-//   $("[name=date_tab]").on("change", function () {
-//     dataEnd = $(this).val();
-//     console.log(new Date(dataEnd).getTime());
-//   });
-// }
+function addForm(RefCollection, uniqueObj) {
+  console.log(uniqueObj);
+
+  RefCollection.doc(uniqueObj.Title)
+    .set(uniqueObj)
+    .then(function () {
+      console.log("Success");
+    })
+    .catch(function (error) {
+      console.error("Error adding document: ", error);
+    });
+}
+
+async function generateURL(key, RefCollection, Title) {
+  let count = 0;
+  await storageRef
+    .child("Upcoming Event/" + key + "/")
+    .listAll()
+    .then(function (result) {
+      result.items.forEach(function (image) {
+        //   display_image(images);
+
+        image.getDownloadURL().then(function (url) {
+          console.log(url, key);
+          count++;
+          addImageURL(url, RefCollection, Title, count);
+        });
+      });
+    });
+}
+
+function addImageURL(url, RefCollection, Title, count) {
+  let imageUrl = {};
+  imageUrl["url" + count] = url;
+  RefCollection.doc(Title)
+    .update(imageUrl)
+    .then(function () {
+      console.log("Success");
+    })
+    .catch(function (error) {
+      console.error("Error adding document: ", error);
+    });
+}

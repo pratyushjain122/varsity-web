@@ -2,19 +2,24 @@ const db = firebase.firestore();
 const storage = firebase.storage();
 const RefCollection = db.collection("Upcoming Event");
 var storageRef = storage.ref();
+
 async function displayData() {
   const snapshot = await RefCollection.orderBy("Timestamp", "asc").get();
+
   snapshot.forEach((doc) => {
     SetImgRef(doc.data().key);
     console.log(doc.id, "=>", doc.data());
     console.log(doc.data().key);
+    console.log(doc.data().Title);
+    console.log(doc.data().description);
+    console.log(doc.data().event_date);
+
+    document.getElementById("upcoming_event_heading").innerHTML = doc.data().Title;
+    document.getElementById("upcoming_event_description").innerHTML = doc.data().description;
   });
 }
 
 displayData();
-
-// Since you mentioned your images are in a folder,
-// we'll create a Reference to that folder:
 
 async function SetImgRef(key) {
   console.log(key);
@@ -35,23 +40,4 @@ async function SetImgRef(key) {
         });
       });
     });
-
-  // Find all the prefixes and items.
-  //   storageRef
-  //     .child("Upcoming Event/" + key + "/")
-  //     .listAll()
-  //     .then((res) => {
-  //       console.log(res);
-  //       // res.prefixes.forEach((folderRef) => {
-  //       //   // All the prefixes under listRef.
-  //       //   // You may call listAll() recursively on them.
-  //       // });
-  //       res.items.forEach((itemRef) => {
-  //         // All the items under listRef.
-  //         console.log(itemRef);
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       // Uh-oh, an error occurred!
-  //     });
 }

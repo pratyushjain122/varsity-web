@@ -2,12 +2,15 @@ const db = firebase.firestore();
 const storage = firebase.storage();
 const storageRef = storage.ref();
 
+let dataEnd;
+
 function check_tab(IDDD) {
   console.log(IDDD);
 
   switch (IDDD) {
     case "upcoming-events-tab":
       console.log("1");
+      //dateToTimestamp("date_upcoming");
       handleEventForm("upcoming", "upcoming-event_form");
       break;
     case "past-events-tab":
@@ -43,25 +46,34 @@ function handleEventForm(tab, uniqueEventForm) {
     switch (tab) {
       case "upcoming": {
         console.log("kitni barrrrrrrrrrrrrrr");
+        const RefCollection = db.collection("Upcoming Event");
+
         const heading = document.getElementById("upcoming-heading").value;
         const description = document.getElementById("upcoming-description").value;
         const date = document.getElementById("upcoming-date").value;
+        const file = document.getElementById("upcoming-file").files;
 
-        const uniqueObj = {
-          Title: heading,
-          description: description,
-          event_date: date,
-          key: uniqkey,
-        };
+        let dateSplit = date.split("-");
 
-        const RefCollection = db.collection("Upcoming Event");
+        var newDate = new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]);
+        timestamp = newDate.getTime();
+        console.log(timestamp);
 
         console.log(heading);
         console.log(description);
         console.log(date);
         console.log(uniqkey);
         console.log("all values set");
+
+        const uniqueObj = {
+          Title: heading,
+          description: description,
+          event_date: date,
+          Timestamp: timestamp,
+          key: uniqkey,
+        };
         console.log(uniqueObj);
+        const EventRef = storageRef.child("Upcoming Event/" + uniqkey);
 
         RefCollection.doc(uniqueObj.Title)
           .set(uniqueObj)
@@ -74,6 +86,8 @@ function handleEventForm(tab, uniqueEventForm) {
 
         $("#upcoming-toast").toast("show");
 
+        upload_files(file, EventRef, uniqkey);
+        form.reset();
         break;
       }
       case "past": {
@@ -114,7 +128,7 @@ function handleEventForm(tab, uniqueEventForm) {
         upload_files(file, EventRef, uniqkey);
 
         $("#past-toast").toast("show");
-
+        form.reset();
         break;
       }
       case "gallery": {
@@ -157,7 +171,7 @@ function handleEventForm(tab, uniqueEventForm) {
         upload_files(file, EventRef, uniqkey);
 
         $("#gallery-toast").toast("show");
-
+        form.reset();
         break;
       }
       case "collaborations": {
@@ -198,7 +212,7 @@ function handleEventForm(tab, uniqueEventForm) {
         upload_files(file, EventRef, uniqkey);
 
         $("#collaboration-toast").toast("show");
-
+        form.reset();
         break;
       }
       case "members": {
@@ -244,12 +258,10 @@ function handleEventForm(tab, uniqueEventForm) {
         upload_files(file, EventRef, uniqkey);
 
         $("#members-toast").toast("show");
-
+        form.reset();
         break;
       }
     }
-
-    form.reset();
   });
 }
 
@@ -366,3 +378,11 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 
 check_tab("upcoming-events-tab");
+
+// function dateToTimestamp(date_tab) {
+//   console.log("we are in");
+//   $("[name=date_tab]").on("change", function () {
+//     dataEnd = $(this).val();
+//     console.log(new Date(dataEnd).getTime());
+//   });
+// }

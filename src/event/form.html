@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Varsity Care - Events</title>
     <link rel="icon" href="../../assets/logo1.png" type="image/gif" sizes="16x16" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -195,10 +196,17 @@
               <textarea class="form-control" id="upcoming-description" aria-label="With textarea"></textarea>
             </div>
 
+            <div class="my-3 row">
+              <label for="formFileMultiple" class="form-label col-md-2">Photos</label>
+              <div class="col-md-10">
+                <input class="form-control" type="file" id="upcoming-file" multiple />
+              </div>
+            </div>
+
             <div class="input-group my-3">
               <label for="example-date-input" class="col-2 col-form-label">Date</label>
               <div class="col-10">
-                <input class="form-control" type="date" value="" id="upcoming-date" />
+                <input class="form-control" type="date" name="date_upcoming" value="" id="upcoming-date" />
               </div>
             </div>
 
@@ -254,7 +262,7 @@
             <div class="input-group my-3">
               <label for="example-date-input" class="col-2 col-form-label">Date</label>
               <div class="col-10">
-                <input class="form-control" type="date" value="" id="past-date" />
+                <input class="form-control" type="date" name="date_end" value="" id="past-date" />
               </div>
             </div>
 
@@ -305,7 +313,7 @@
             <div class="input-group mb-3">
               <label for="example-date-input" class="col-2 col-form-label">Date</label>
               <div class="col-10">
-                <input class="form-control" type="date" value="" id="gallery-date" />
+                <input class="form-control" type="date" name="date_end" value="" id="gallery-date" />
               </div>
             </div>
 
@@ -361,7 +369,7 @@
             <div class="input-group mb-3">
               <label for="example-date-input" class="col-2 col-form-label">Date</label>
               <div class="col-10">
-                <input class="form-control" type="date" value="" id="collaborations-date" />
+                <input class="form-control" type="date" name="date_end" value="" id="collaborations-date" />
               </div>
             </div>
 

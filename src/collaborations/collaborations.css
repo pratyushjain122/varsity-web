@@ -47,14 +47,14 @@ html {
   margin-left: 4% !important;
 }
 .carousel .carousel-item {
-  height: 750px;
+  height: 700px;
 }
 .carousel-item img {
   position: absolute;
   object-fit: cover;
   top: 0;
   left: 0;
-  min-height: 600px;
+  min-height: 550px;
   background-position: center;
   background-size: contain;
 }

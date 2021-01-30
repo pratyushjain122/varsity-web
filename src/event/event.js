@@ -7,7 +7,7 @@ async function displayData() {
   const snapshot = await RefCollection.orderBy("Timestamp", "asc").get();
 
   snapshot.forEach((doc) => {
-    SetImgRef(doc.data().key);
+    //let urlfetch = SetImgRef(doc.data());
     console.log(doc.id, "=>", doc.data());
     console.log(doc.data().key);
     console.log(doc.data().Title);
@@ -15,27 +15,42 @@ async function displayData() {
     console.log(doc.data().event_date);
     console.log(doc.data().Timestamp);
 
-    document.getElementById("upcoming_event_heading").innerHTML = doc.data().Title;
-    document.getElementById("upcoming_event_description").innerHTML = doc.data().description;
-    countDownTimer(doc.data().Timestamp);
+    //let getCountDown = countDownTimer(doc.data().Timestamp);
+    // console.log(getCountDown);
+    // let days = getCountDown[0];
 
-    var li_insert = '<li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>';
+    // let hours = getCountDown[1];
+    // let minutes = getCountDown[2];
+    // let seconds = getCountDown[3];
 
-    document.getElementsByClassName("carousel-indicators").innerHTML += li_insert;
+    // document.getElementById("upcoming_event_heading").innerHTML = doc.data().Title;
+    // document.getElementById("upcoming_event_description").innerHTML = doc.data().description;
 
-    var html_insert =
-      '<div class="carousel-item active" data-bs-interval="6000"> <img src="../../assets/Symbiosis_Institute_Of_Technol.png" class="img d-block w-100" id="upcoming_event_image" alt="..."/><div class="carousel-caption d-flex justify-content-center"> <div class="card align-items-end text-white bg-dark mb-3" style="max-width: 50rem"><div class="card-header text-warning" id="demo"></div><div class="card-body"><h3 class="card-title" id="upcoming_event_heading"></h3><p class="card-text" id="upcoming_event_description"> </p></div></div></div></div>';
+    for (let i = 0; i < 5; i++) {
+      var li_insert = '<li data-bs-target="#carouselExampleDark" data-bs-slide-to="' + i + '" class="active"></li>';
+      console.log(li_insert);
+      document.getElementById("fuck").innerHTML += li_insert;
+      var html_insert =
+        '<div class="carousel-item active" data-bs-interval="6000"> <img src="' +
+        doc.data().url1 +
+        '" class="img d-block w-100" id="upcoming_event_image" alt="..."/><div class="carousel-caption d-flex justify-content-center"> <div class="card align-items-end text-white bg-dark mb-3" style="max-width: 50rem"><div class="card-header text-warning" id="demo"></div><div class="card-body"><h3 class="card-title" id="upcoming_event_heading">' +
+        doc.data().Title +
+        '</h3><p class="card-text" id="upcoming_event_description">' +
+        doc.data().description +
+        " </p></div></div></div></div>";
 
-    document.getElementsByClassName("carousel-inner").innerHTML += html_insert;
+      document.getElementById("fuck2").innerHTML += html_insert;
+    }
+    console.log(countDownTimer(doc.data().Timestamp));
   });
 }
 
 displayData();
 
-async function SetImgRef(key) {
-  console.log(key);
+async function SetImgRef(objfetch) {
   //const storageRef = storage.child("Upcoming Event/" + key + "/");
-
+  key = objfetch.key;
+  console.log(key);
   // Now we get the references of these images
   await storageRef
     .child("Upcoming Event/" + key + "/")
@@ -47,6 +62,9 @@ async function SetImgRef(key) {
         image.getDownloadURL().then(function (url) {
           //var html_insert = '<div class="item col-md-4"><img class="image" src="' + url + '" alt="gallery_image"></div>';
           console.log(url, key);
+          console.log(objfetch.Title);
+          return url;
+
           //document.getElementById("image-container").innerHTML += html_insert;
         });
       });
@@ -72,13 +90,18 @@ function countDownTimer(Timestamp) {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    document.getElementById("demo").innerHTML =
-      "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    document.getElementById("demo").innerHTML = "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    console.log("qwerty");
 
-    // If the count down is finished, write some text
     if (distance < 0) {
       clearInterval(x);
       document.getElementById("demo").innerHTML = "ALREADY OCCURED!";
     }
+    let returnarr = [days, hours, minutes, seconds];
+    //console.log(returnarr);
+
+    return returnarr[0];
   }, 1000);
+  //return x().days;
+  console.log(x);
 }

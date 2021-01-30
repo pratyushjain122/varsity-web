@@ -35,6 +35,37 @@ body::-webkit-scrollbar-thumb {
   min-height: 100vh;
 }
 
+.card {
+   margin-left: 9%;
+   margin-bottom: 9%;
+   margin-right: 9%;
+   margin-top: 9%;
+   position:relative;
+}
+
+.img-card
+{
+   position: relative;
+   width: 90%;
+   margin-top: 5%;
+   margin-left: auto;
+   margin-right: auto;   
+}
+
+.card-img-top{
+  border-radius: 5%;
+  border-style:ridge;
+}
+
+.custom-class svg{
+  background-color:red;
+  height: 50px;
+  width:50px;
+  padding: 5px 5px;
+  border-radius: 20px;
+}
+
+
 @media (max-width: 990px) {
   #content {
     padding: 40px 20px 0px 20px;

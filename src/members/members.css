@@ -30,94 +30,88 @@ body::-webkit-scrollbar-thumb {
   padding: 50px 100px 100px 100px;
 }
 
+.navbar .nav-link:hover {
+  border-bottom: 2px solid #111;
+}
 
-  .mainteam{
-      /*border:2px solid red;*/
-      margin: 0 10vw 2vh 10vw;
+.mainteam {
+  /*border:2px solid red;*/
+  margin: 0 10vw 2vh 10vw;
+}
+
+.sub {
+  /*border:2px solid blue;*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  /*text-shadow: 0px 6px 4px black;*/
+}
+
+.sub-sub1 {
+  /*border:2px solid green;*/
+  margin: 0vh 5vw;
+  padding-top: 6vh;
+  width: 17rem;
+  height: 30rem;
+}
+
+.sub-sub1 > img {
+  width: 100%;
+  height: 50%;
+  border-radius: 20px;
+}
+
+.name1 {
+  font-size: 1.1rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: #00bfff;
+}
+
+.name2 {
+  font-size: 1.1rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: #f5f5f5;
+}
+.email {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #00bfff;
+  font-size: x-small;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 680px) {
+  .sub-sub1 > img {
+    height: 65%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .mainteam {
+    margin: 0 7vw 2vh 7vw;
   }
 
-  .sub{
-      /*border:2px solid blue;*/
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      text-align: center;
-      /*text-shadow: 0px 6px 4px black;*/
+  .sub-sub1 {
+    margin: 4vh 4vw;
+    width: 14rem;
+    height: 26rem;
   }
 
+  .name1 {
+    font-size: 1.1rem;
+  }
+}
 
-  .sub-sub1{
-      /*border:2px solid green;*/
-      margin: 0vh 5vw;
-      padding-top: 6vh;
-      width: 17rem;
-      height: 30rem;
+@media only screen and (max-width: 750px) {
+  .sub-sub1 {
+    margin: 5vh 2.5vw;
+    width: 13rem;
+    height: 30rem;
   }
 
-  .sub-sub1 > img{
-      width: 100%;
-      height: 50%;
-      border-radius: 20px;
+  .name1 {
+    font-size: 1rem;
   }
-
-  
-  .name1{
-      font-size: 1.1rem;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      background-color: #00BFFF;
-      
-  }
-
-  .name2{
-      font-size: 1.1rem;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      color: #f5f5f5;
-  }
-  .email{
-   border-bottom-left-radius: 15px; 
-   border-bottom-right-radius: 15px;
-   background-color: #00BFFF;
-   font-size: x-small;
-   font-weight: bold;
-  }
- 
-  @media only screen and (max-width: 680px){
-      .sub-sub1 > img{height: 65%;}
-     
-  }
-  @media only screen and (max-width: 1000px){
-      
-      .mainteam{
-          margin: 0 7vw 2vh 7vw;
-      }
-
-           .sub-sub1{
-          margin: 4vh 4vw;
-          width: 14rem;
-          height: 26rem;
-      }
-
-      .name1{
-          font-size: 1.1rem;
-      }
-
-      
-  }
-
-  @media only screen and (max-width: 750px){
-      
-          .sub-sub1{
-          margin: 5vh 2.5vw;
-          width: 13rem;
-          height: 30rem;
-      }
-
-      .name1{
-          font-size: 1.0rem;
-      }
-
-      
-  }
-
+}

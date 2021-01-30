@@ -19,6 +19,10 @@ async function displayData() {
     document.getElementById("upcoming_event_description").innerHTML = doc.data().description;
     countDownTimer(doc.data().Timestamp);
 
+    var li_insert = '<li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>';
+
+    document.getElementsByClassName("carousel-indicators").innerHTML += li_insert;
+
     var html_insert =
       '<div class="carousel-item active" data-bs-interval="6000"> <img src="../../assets/Symbiosis_Institute_Of_Technol.png" class="img d-block w-100" id="upcoming_event_image" alt="..."/><div class="carousel-caption d-flex justify-content-center"> <div class="card align-items-end text-white bg-dark mb-3" style="max-width: 50rem"><div class="card-header text-warning" id="demo"></div><div class="card-body"><h3 class="card-title" id="upcoming_event_heading"></h3><p class="card-text" id="upcoming_event_description"> </p></div></div></div></div>';
 

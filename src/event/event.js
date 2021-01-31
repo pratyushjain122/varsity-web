@@ -4,6 +4,7 @@ const RefCollection = db.collection("Upcoming Event");
 var storageRef = storage.ref();
 
 var days, hours, minutes, seconds;
+let flag = 0;
 
 async function displayData() {
   const snapshot = await RefCollection.orderBy("Timestamp", "asc").get();
@@ -28,20 +29,19 @@ async function displayData() {
     // document.getElementById("upcoming_event_heading").innerHTML = doc.data().Title;
     // document.getElementById("upcoming_event_description").innerHTML = doc.data().description;
 
-    for (let i = 0; i < 5; i++) {
-      // var li_insert = '<li data-bs-target="#carouselExampleDark" data-bs-slide-to="' + i + '" class="active"></li>';
-      // console.log(li_insert);
-      // document.getElementById("fuck").innerHTML += li_insert;
-      // var html_insert =
-      //   '<div class="carousel-item active" data-bs-interval="6000"> <img src="' +
-      //   doc.data().url1 +
-      //   '" class="img d-block w-100" id="upcoming_event_image" alt="..."/><div class="carousel-caption d-flex justify-content-center"> <div class="card align-items-end text-white bg-dark mb-3" style="max-width: 50rem"><div class="card-header text-warning" id="demo"></div><div class="card-body"><h3 class="card-title" id="upcoming_event_heading">' +
-      //   doc.data().Title +
-      //   '</h3><p class="card-text" id="upcoming_event_description">' +
-      //   doc.data().description +
-      //   " </p></div></div></div></div>";
-      // document.getElementById("fuck2").innerHTML += html_insert;
-
+    // var li_insert = '<li data-bs-target="#carouselExampleDark" data-bs-slide-to="' + i + '" class="active"></li>';
+    // console.log(li_insert);
+    // document.getElementById("fuck").innerHTML += li_insert;
+    // var html_insert =
+    //   '<div class="carousel-item active" data-bs-interval="6000"> <img src="' +
+    //   doc.data().url1 +
+    //   '" class="img d-block w-100" id="upcoming_event_image" alt="..."/><div class="carousel-caption d-flex justify-content-center"> <div class="card align-items-end text-white bg-dark mb-3" style="max-width: 50rem"><div class="card-header text-warning" id="demo"></div><div class="card-body"><h3 class="card-title" id="upcoming_event_heading">' +
+    //   doc.data().Title +
+    //   '</h3><p class="card-text" id="upcoming_event_description">' +
+    //   doc.data().description +
+    //   " </p></div></div></div></div>";
+    // document.getElementById("fuck2").innerHTML += html_insert;
+    if (flag == 0) {
       var html_insert =
         '<div class="carousel-item active"><div class="d-flex justify-content-center"><div class="card"><div class="card-body"><h3 class="card-title">' +
         doc.data().Title +
@@ -50,8 +50,19 @@ async function displayData() {
         '</p></div><div class="card-footer text-danger text-center" id="timer"></div></div></div></div>"';
 
       document.getElementById("EVENT").innerHTML += html_insert;
+      flag = 1;
+    } else {
+      var html_insert =
+        '<div class="carousel-item "><div class="d-flex justify-content-center"><div class="card"><div class="card-body"><h3 class="card-title">' +
+        doc.data().Title +
+        '</h3><p class="card-text">' +
+        doc.data().description +
+        '</p></div><div class="card-footer text-danger text-center" id="timer"></div></div></div></div>"';
+
+      document.getElementById("EVENT").innerHTML += html_insert;
     }
-    //console.log(countDownTimer(doc.data().Timestamp));
+
+    // console.log(countDownTimer(doc.data().Timestamp));
     countDownTimer(doc.data().Timestamp);
   });
 }
@@ -101,11 +112,11 @@ function countDownTimer(Timestamp) {
     seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    console.log(document.getElementById("timer"));
+    // console.log(document.getElementById("timer"));
 
     document.getElementById("timer").innerText =
       "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-    console.log("qwerty");
+    // console.log("qwerty");
 
     // COUNTDOWN = "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
     // console.log(COUNTDOWN);

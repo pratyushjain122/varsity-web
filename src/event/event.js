@@ -47,21 +47,12 @@ async function displayData() {
         doc.data().Title +
         '</h3><p class="card-text">' +
         doc.data().description +
-        '</p></div><div class="card-footer text-danger text-center" id="demo">' +
-        "LIVE IN : " +
-        days +
-        "d " +
-        hours +
-        "h " +
-        minutes +
-        "m " +
-        seconds +
-        "s " +
-        "</div></div></div></div>";
+        '</p></div><div class="card-footer text-danger text-center" id="demo"></div></div></div></div>"';
 
       document.getElementById("EVENT").innerHTML += html_insert;
     }
-    console.log(countDownTimer(doc.data().Timestamp));
+    //console.log(countDownTimer(doc.data().Timestamp));
+    countDownTimer(doc.data().Timestamp);
   });
 }
 
@@ -110,11 +101,13 @@ function countDownTimer(Timestamp) {
     seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    document.getElementById("demo").innerHTML =
-      "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    console.log(document.getElementById("demo"));
+
+    document.getElementById("demo").innerHTML = "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
     console.log("qwerty");
 
-    COUNTDOWN = "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    // COUNTDOWN = "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    // console.log(COUNTDOWN);
 
     if (distance < 0) {
       clearInterval(x);

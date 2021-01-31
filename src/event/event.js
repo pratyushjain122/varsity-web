@@ -47,7 +47,7 @@ async function displayData() {
         doc.data().Title +
         '</h3><p class="card-text">' +
         doc.data().description +
-        '</p></div><div class="card-footer text-danger text-center" id="demo"></div></div></div></div>"';
+        '</p></div><div class="card-footer text-danger text-center" id="timer"></div></div></div></div>"';
 
       document.getElementById("EVENT").innerHTML += html_insert;
     }
@@ -101,9 +101,10 @@ function countDownTimer(Timestamp) {
     seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    console.log(document.getElementById("demo"));
+    console.log(document.getElementById("timer"));
 
-    document.getElementById("demo").innerHTML = "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    document.getElementById("timer").innerText =
+      "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
     console.log("qwerty");
 
     // COUNTDOWN = "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
@@ -111,7 +112,7 @@ function countDownTimer(Timestamp) {
 
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("demo").innerHTML = "ALREADY OCCURED!";
+      document.getElementById("timer").innerHTML = "ALREADY OCCURED!";
     }
     let returnarr = [days, hours, minutes, seconds];
     //console.log(returnarr);

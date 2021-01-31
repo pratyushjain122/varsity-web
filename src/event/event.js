@@ -47,7 +47,9 @@ async function displayData() {
         doc.data().Title +
         '</h3><p class="card-text">' +
         doc.data().description +
-        '</p></div><div class="card-footer text-danger text-center" id="timer"></div></div></div></div>"';
+        '</p></div><div class="card-footer text-danger text-center" id="' +
+        doc.data().key +
+        '"></div></div></div></div>"';
 
       document.getElementById("EVENT").innerHTML += html_insert;
       flag = 1;
@@ -57,13 +59,15 @@ async function displayData() {
         doc.data().Title +
         '</h3><p class="card-text">' +
         doc.data().description +
-        '</p></div><div class="card-footer text-danger text-center" id="timer"></div></div></div></div>"';
+        '</p></div><div class="card-footer text-danger text-center" id="' +
+        doc.data().key +
+        '"></div></div></div></div>"';
 
       document.getElementById("EVENT").innerHTML += html_insert;
     }
 
     // console.log(countDownTimer(doc.data().Timestamp));
-    countDownTimer(doc.data().Timestamp);
+    countDownTimer(doc.data().Timestamp, doc.data().key);
   });
 }
 
@@ -93,7 +97,7 @@ async function SetImgRef(objfetch) {
     });
 }
 
-function countDownTimer(Timestamp) {
+function countDownTimer(Timestamp, key) {
   // Set the date we're counting down to
   var countDownDate = Timestamp;
 
@@ -114,8 +118,7 @@ function countDownTimer(Timestamp) {
     // Display the result in the element with id="demo"
     // console.log(document.getElementById("timer"));
 
-    document.getElementById("timer").innerText =
-      "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    document.getElementById(key).innerText = "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
     // console.log("qwerty");
 
     // COUNTDOWN = "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
@@ -123,7 +126,7 @@ function countDownTimer(Timestamp) {
 
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("timer").innerHTML = "ALREADY OCCURED!";
+      document.getElementById(key).innerHTML = "ALREADY OCCURED!";
     }
     let returnarr = [days, hours, minutes, seconds];
     //console.log(returnarr);

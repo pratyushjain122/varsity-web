@@ -39,9 +39,9 @@ body::-webkit-scrollbar-thumb {
    margin-left: 9%;
    margin-bottom: 9%;
    margin-right: 9%;
-   margin-top: 9%;
+   margin-top: 3%; 
    position:relative;
-  min-height: 98%; !important
+   min-height: 97% !important;
 }
 
 .img-card

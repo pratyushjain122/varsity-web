@@ -33,3 +33,13 @@ body::-webkit-scrollbar-thumb {
 .navbar .nav-link {
   margin: auto 4px auto 4px;
 }
+
+.carousel .carousel-item {
+  height: 500px;
+  /* width: auto; */
+}
+
+#content {
+  min-height: 90vh;
+  padding: 50px 100px;
+}

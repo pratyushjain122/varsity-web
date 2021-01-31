@@ -3,6 +3,8 @@ const storage = firebase.storage();
 const RefCollection = db.collection("Upcoming Event");
 var storageRef = storage.ref();
 
+var days, hours, minutes, seconds;
+
 async function displayData() {
   const snapshot = await RefCollection.orderBy("Timestamp", "asc").get();
 
@@ -27,19 +29,37 @@ async function displayData() {
     // document.getElementById("upcoming_event_description").innerHTML = doc.data().description;
 
     for (let i = 0; i < 5; i++) {
-      var li_insert = '<li data-bs-target="#carouselExampleDark" data-bs-slide-to="' + i + '" class="active"></li>';
-      console.log(li_insert);
-      document.getElementById("fuck").innerHTML += li_insert;
-      var html_insert =
-        '<div class="carousel-item active" data-bs-interval="6000"> <img src="' +
-        doc.data().url1 +
-        '" class="img d-block w-100" id="upcoming_event_image" alt="..."/><div class="carousel-caption d-flex justify-content-center"> <div class="card align-items-end text-white bg-dark mb-3" style="max-width: 50rem"><div class="card-header text-warning" id="demo"></div><div class="card-body"><h3 class="card-title" id="upcoming_event_heading">' +
-        doc.data().Title +
-        '</h3><p class="card-text" id="upcoming_event_description">' +
-        doc.data().description +
-        " </p></div></div></div></div>";
+      // var li_insert = '<li data-bs-target="#carouselExampleDark" data-bs-slide-to="' + i + '" class="active"></li>';
+      // console.log(li_insert);
+      // document.getElementById("fuck").innerHTML += li_insert;
+      // var html_insert =
+      //   '<div class="carousel-item active" data-bs-interval="6000"> <img src="' +
+      //   doc.data().url1 +
+      //   '" class="img d-block w-100" id="upcoming_event_image" alt="..."/><div class="carousel-caption d-flex justify-content-center"> <div class="card align-items-end text-white bg-dark mb-3" style="max-width: 50rem"><div class="card-header text-warning" id="demo"></div><div class="card-body"><h3 class="card-title" id="upcoming_event_heading">' +
+      //   doc.data().Title +
+      //   '</h3><p class="card-text" id="upcoming_event_description">' +
+      //   doc.data().description +
+      //   " </p></div></div></div></div>";
+      // document.getElementById("fuck2").innerHTML += html_insert;
 
-      document.getElementById("fuck2").innerHTML += html_insert;
+      var html_insert =
+        '<div class="carousel-item active"><div class="d-flex justify-content-center"><div class="card"><div class="card-body"><h3 class="card-title">' +
+        doc.data().Title +
+        '</h3><p class="card-text">' +
+        doc.data().description +
+        '</p></div><div class="card-footer text-danger text-center" id="demo">' +
+        "LIVE IN : " +
+        days +
+        "d " +
+        hours +
+        "h " +
+        minutes +
+        "m " +
+        seconds +
+        "s " +
+        "</div></div></div></div>";
+
+      document.getElementById("EVENT").innerHTML += html_insert;
     }
     console.log(countDownTimer(doc.data().Timestamp));
   });
@@ -84,14 +104,17 @@ function countDownTimer(Timestamp) {
     var distance = countDownDate - now;
 
     // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    document.getElementById("demo").innerHTML = "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    document.getElementById("demo").innerHTML =
+      "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
     console.log("qwerty");
+
+    COUNTDOWN = "LIVE IN : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
     if (distance < 0) {
       clearInterval(x);

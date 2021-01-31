@@ -30,6 +30,10 @@ body::-webkit-scrollbar-thumb {
   border-bottom: 2px solid black;
 }
 
+.navbar .nav-link {
+  margin: auto 4px auto 4px;
+}
+
 #content {
   background: #232526; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #414345, #232526); /* Chrome 10-25, Safari 5.1-6 */
@@ -39,6 +43,7 @@ body::-webkit-scrollbar-thumb {
     #232526
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 50px 100px;
+  height: 69.5vh;
   /* height: 90vh; */
 }
 
@@ -46,15 +51,27 @@ body::-webkit-scrollbar-thumb {
   width: 300px;
 }
 
+.card {
+  height: 300px;
+  width: 50%;
+}
+
 @media (max-width: 990px) {
   #content {
     padding: 50px 0px;
+    height: max-content;
+    min-height: 80vh;
   }
   #h1 {
     font-size: 1.5em;
     padding: 50px 30px;
   }
+
+  .card {
+    height: auto;
+    width: 75%;
+  }
   .card-text {
-    font-size: 0.7em;
+    font-size: 0.9em;
   }
 }

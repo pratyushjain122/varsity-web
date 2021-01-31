@@ -29,6 +29,9 @@ body::-webkit-scrollbar-thumb {
 .navbar .nav-link:hover {
   border-bottom: 2px solid #111;
 }
+.navbar .nav-link {
+  margin: auto 4px auto 4px;
+}
 
 #h3 {
   font-size: 2em;

@@ -34,6 +34,10 @@ body::-webkit-scrollbar-thumb {
   border-bottom: 2px solid #111;
 }
 
+.navbar .nav-link {
+  margin: auto 4px auto 4px;
+}
+
 .mainteam {
   /*border:2px solid red;*/
   margin: 0 10vw 2vh 10vw;

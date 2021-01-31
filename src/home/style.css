@@ -60,7 +60,7 @@ body::-webkit-scrollbar-thumb {
   text-transform: uppercase;
   opacity: 1;
 }
-#h4{
+#h4 {
   font-size: 1em;
   font-weight: 700;
   color: #fff;
@@ -161,6 +161,10 @@ i {
 
 .navbar .nav-link:hover {
   border-bottom: 2px solid #111;
+}
+
+.navbar .nav-link {
+  margin: auto 4px auto 4px;
 }
 
 @media (max-width: 990px) {

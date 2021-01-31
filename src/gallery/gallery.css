@@ -20,6 +20,10 @@ html {
   border-bottom: 2px solid black;
 }
 
+.navbar .nav-link {
+  margin: auto 4px auto 4px;
+}
+
 .carousel .carousel-item {
   height: 500px;
   /* width: auto; */

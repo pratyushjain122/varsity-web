@@ -97,23 +97,23 @@ function check_tab(IDDD) {
     case "upcoming-events-tab":
       console.log("1");
       //dateToTimestamp("date_upcoming");
-      handleEventForm("upcoming", "upcoming-event_form");
+      handleEventForm("Upcoming Event", "upcoming-event_form");
       break;
     case "past-events-tab":
       console.log("2");
-      handleEventForm("past", "past-event_form");
+      handleEventForm("Past Event", "past-event_form");
       break;
     case "gallery-tab":
       console.log("3");
-      handleEventForm("gallery", "gallery_form");
+      handleEventForm("Gallery", "gallery_form");
       break;
     case "collaborations-tab":
       console.log("4");
-      handleEventForm("collaborations", "collaborations_form");
+      handleEventForm("Collaborations", "collaborations_form");
       break;
     case "members-tab":
       console.log("5");
-      handleEventForm("members", "members_form");
+      handleEventForm("Members", "members_form");
       break;
     default:
       console.log("default");
@@ -130,7 +130,8 @@ function handleEventForm(tab, uniqueEventForm) {
     const uniqkey = Math.floor(Math.random() * 90000) + 10000;
 
     switch (tab) {
-      case "upcoming": {
+      case "Upcoming Event": {
+        console.log(tab);
         console.log("kitni barrrrrrrrrrrrrrr");
         const RefCollection = db.collection("Upcoming Event");
 
@@ -158,32 +159,40 @@ function handleEventForm(tab, uniqueEventForm) {
           key: uniqkey,
         };
         console.log(uniqueObj);
-        const EventRef = storageRef.child("Upcoming Event/" + uniqkey);
+        const EventRef = storageRef.child("Upcoming Event/" + heading + "-" + uniqkey);
 
         addForm(RefCollection, uniqueObj);
 
-        upload_files(file, EventRef, uniqkey, RefCollection, uniqueObj.Title);
+        upload_files(file, EventRef, uniqkey, RefCollection, uniqueObj.Title, tab);
 
         $("#upcoming-toast").toast("show");
 
         form.reset();
         break;
       }
-      case "past": {
+      case "Past Event": {
+        console.log(tab);
         const heading = document.getElementById("past-heading").value;
         const description = document.getElementById("past-description").value;
         const date = document.getElementById("past-date").value;
         const file = document.getElementById("past-file").files;
+
+        let dateSplit = date.split("-");
+
+        var newDate = new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]);
+        timestamp = newDate.getTime();
+        console.log(timestamp);
 
         const uniqueObj = {
           Title: heading,
           description: description,
           event_date: date,
           key: uniqkey,
+          Timestamp: timestamp,
         };
 
         const RefCollection = db.collection("Past Event");
-        const EventRef = storageRef.child("Past Event/" + uniqkey);
+        const EventRef = storageRef.child("Past Event/" + heading + "-" + uniqkey);
 
         console.log(heading);
         console.log(description);
@@ -195,16 +204,9 @@ function handleEventForm(tab, uniqueEventForm) {
         console.log("all values set");
         console.log(uniqueObj);
 
-        RefCollection.doc(uniqueObj.Title)
-          .set(uniqueObj)
-          .then(function () {
-            console.log("Success");
-          })
-          .catch(function (error) {
-            console.error("Error adding document: ", error);
-          });
+        addForm(RefCollection, uniqueObj);
 
-        upload_files(file, EventRef, uniqkey);
+        upload_files(file, EventRef, uniqkey, RefCollection, uniqueObj.Title, tab);
 
         $("#past-toast").toast("show");
         form.reset();
@@ -344,8 +346,10 @@ function handleEventForm(tab, uniqueEventForm) {
   });
 }
 
-async function upload_files(file, EventRef, uniqkey, RefCollection, Title) {
+async function upload_files(file, EventRef, uniqkey, RefCollection, Title, tab) {
   console.log(Object.keys(file).length);
+  console.log(tab);
+  console.log(Title);
 
   for (let key = 0; key < Object.keys(file).length; key++) {
     //if (file.hasOwnProperty(key)) {
@@ -361,13 +365,11 @@ async function upload_files(file, EventRef, uniqkey, RefCollection, Title) {
       .put(file[key], metadata)
       .then(function (snapshot) {
         console.log("Uploaded a blob or file!");
-        generateURL(uniqkey, RefCollection, Title);
+        generateURL(uniqkey, RefCollection, Title, tab);
       })
       .catch((e) => console.log(e));
   }
 }
-
-check_tab("upcoming-events-tab");
 
 function addForm(RefCollection, uniqueObj) {
   console.log(uniqueObj);
@@ -382,10 +384,12 @@ function addForm(RefCollection, uniqueObj) {
     });
 }
 
-async function generateURL(key, RefCollection, Title) {
+async function generateURL(key, RefCollection, Title, tab) {
   let count = 0;
+  console.log("function called");
+  console.log(Title);
   await storageRef
-    .child("Upcoming Event/" + key + "/")
+    .child(tab + "/" + Title + "-" + key + "/")
     .listAll()
     .then(function (result) {
       result.items.forEach(function (image) {
@@ -412,3 +416,49 @@ function addImageURL(url, RefCollection, Title, count) {
       console.error("Error adding document: ", error);
     });
 }
+
+check_tab("upcoming-events-tab");
+
+async function moveEvent() {
+  const timestamp = Date.now();
+  const upcomigRef = db.collection("Upcoming Event");
+  const PastRef = db.collection("Past Event");
+
+  console.log(timestamp);
+  let obj;
+
+  var query = await upcomigRef
+    .where("Timestamp", "<=", timestamp)
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        obj = doc.data();
+        console.log(obj);
+      });
+
+      return obj;
+    })
+    .then(function (obj) {
+      console.log(obj);
+      addForm(PastRef, obj);
+      return obj.Title;
+    })
+    .then(function (Title) {
+      upcomigRef
+        .doc(Title)
+        .delete()
+        .then(function () {
+          console.log("Document successfully deleted!");
+        })
+        .catch(function (error) {
+          console.error("Error removing document: ", error);
+        });
+    })
+    .catch(function (error) {
+      console.log("Error getting documents: ", error);
+    });
+}
+
+moveEvent();

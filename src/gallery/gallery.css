@@ -69,3 +69,21 @@ html {
     font-size: 2em;
   }
 }
+
+.page-container{
+  display: flex;
+  flex-wrap: wrap;
+  /* border: 2px solid red; */
+  justify-content: center;
+}
+
+.page-container > div{
+  /* border: 2px solid red; */
+  margin: 20px;
+  padding: 5px;
+  background-color: rgb(160, 160, 160);
+}
+
+.page-container :hover{
+  cursor: pointer;
+}

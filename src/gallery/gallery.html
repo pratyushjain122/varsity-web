@@ -133,6 +133,12 @@
     <!-- images for gallery -->
     <div class="container row my-3 pb-3 mx-auto g-4" id="image-container"> </div>
 
+    <div class="page-container">
+      <div class="previous_btn" onclick="click_previous()">Previous</div>
+      <div id="index" class="page_index"></div>
+      <div class="next_btn" onclick="click_next()">Next</div>
+    </div>
+
     <!-- FOOTER -->
     <div>
       <ul class="nav h-100 pt-3 navbar-dark bg-dark justify-content-center">
@@ -172,8 +178,8 @@
     <!-- <script src="jquery.min.js"></script> -->
 
     <!-- config js for firebase -->
-    <script src="../firebase/firebase.js"></script>
+    <script src="../../src/firebase/firebase.js"></script>
     <!-- script js for storage (gallary) -->
-    <script src="storage.js" type="text/javascript"></script>
+    <script src="../../src/gallery/storage.js" type="text/javascript"></script>
   </body>
 </html>

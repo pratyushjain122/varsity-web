@@ -457,8 +457,25 @@ async function moveEvent() {
       return obj;
     })
     .then(function (obj) {
-      console.log(obj);
-      addForm(PastRef, obj);
+      console.log(obj.Timestamp);
+      const timestampToYear = new Date(obj.Timestamp);
+      console.log(timestampToYear.getFullYear());
+
+      const which_year = timestampToYear.getFullYear();
+      //addForm(PastRef, obj);
+      console.log(typeof which_year);
+
+      PastRef.doc(which_year.toString())
+        .collection("events")
+        .doc(obj.Title)
+        .set(obj)
+        .then(function () {
+          console.log("Success");
+        })
+        .catch(function (error) {
+          console.error("Error adding document: ", error);
+        });
+
       return obj.Title;
     })
     .then(function (Title) {

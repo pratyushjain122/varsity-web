@@ -101,6 +101,8 @@ function check_tab(IDDD) {
       break;
     case "past-events-tab":
       console.log("2");
+
+      creatBrandOptions();
       handleEventForm("Past Event", "past-event_form");
       break;
     case "gallery-tab":
@@ -138,7 +140,7 @@ function handleEventForm(tab, uniqueEventForm) {
         const heading = document.getElementById("upcoming-heading").value;
         const description = document.getElementById("upcoming-description").value;
         const date = document.getElementById("upcoming-date").value;
-        const file = document.getElementById("upcoming-file").files;
+        //const file = document.getElementById("upcoming-file").files;
 
         let dateSplit = date.split("-");
 
@@ -163,7 +165,7 @@ function handleEventForm(tab, uniqueEventForm) {
 
         addForm(RefCollection, uniqueObj);
 
-        upload_files(file, EventRef, uniqkey, RefCollection, uniqueObj.Title, tab);
+        //upload_files(file, EventRef, uniqkey, RefCollection, uniqueObj.Title, tab);
 
         $("#upcoming-toast").toast("show");
 
@@ -172,41 +174,55 @@ function handleEventForm(tab, uniqueEventForm) {
       }
       case "Past Event": {
         console.log(tab);
-        const heading = document.getElementById("past-heading").value;
-        const description = document.getElementById("past-description").value;
-        const date = document.getElementById("past-date").value;
+        //const heading = document.getElementById("past-heading").value;
+        //const description = document.getElementById("past-description").value;
+        //const date = document.getElementById("past-date").value;
         const file = document.getElementById("past-file").files;
 
-        let dateSplit = date.split("-");
+        // let dateSplit = date.split("-");
 
-        var newDate = new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]);
-        timestamp = newDate.getTime();
-        console.log(timestamp);
+        // var newDate = new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]);
+        // timestamp = newDate.getTime();
+        // console.log(timestamp);
 
-        const uniqueObj = {
-          Title: heading,
-          description: description,
-          event_date: date,
-          key: uniqkey,
-          Timestamp: timestamp,
-        };
+        var e = document.getElementById("brand-select");
+        var category = e.options[e.selectedIndex].text;
+        console.log(category);
+
+        const category_split = category.split(" - ");
+        const past_key = category_split[0];
+
+        const past_Title = category_split[1];
+
+        console.log(past_key);
+        console.log(past_Title);
+
+        // const uniqueObj = {
+        //   Title: heading,
+        //   description: description,
+        //   event_date: date,
+        //   key: uniqkey,
+        //   Timestamp: timestamp,
+        // };
 
         const RefCollection = db.collection("Past Event");
-        const EventRef = storageRef.child("Past Event/" + heading + "-" + uniqkey);
+        const EventRef = storageRef.child("Past Event/" + past_Title + "-" + past_key);
 
-        console.log(heading);
-        console.log(description);
-        console.log(date);
-        console.log(uniqkey);
-        console.log(file);
-        console.log(typeof file);
+        // console.log(heading);
+        // console.log(description);
+        // console.log(date);
+        // console.log(uniqkey);
+        // console.log(file);
+        // console.log(typeof file);
 
         console.log("all values set");
-        console.log(uniqueObj);
+        //console.log(uniqueObj);
 
-        addForm(RefCollection, uniqueObj);
+        //RefCollection.doc(past_Title).update({foo: "bar"});
 
-        upload_files(file, EventRef, uniqkey, RefCollection, uniqueObj.Title, tab);
+        //addForm(RefCollection, uniqueObj);
+
+        upload_files(file, EventRef, past_key, RefCollection, past_Title, tab);
 
         $("#past-toast").toast("show");
         form.reset();
@@ -462,3 +478,25 @@ async function moveEvent() {
 }
 
 moveEvent();
+
+async function creatBrandOptions() {
+  let count = 1;
+  const upcomingToPast = {};
+
+  await db
+    .collection("Past Event")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.data().Title);
+        upcomingToPast[count] = doc.data().key + " - " + doc.data().Title;
+        count++;
+      });
+    });
+
+  for (var field in upcomingToPast) {
+    console.log(upcomingToPast[field]);
+    $('<option value="' + upcomingToPast[field] + '">' + upcomingToPast[field] + "</option>").appendTo("#brand-select");
+  }
+}

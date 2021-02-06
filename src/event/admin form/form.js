@@ -102,7 +102,7 @@ function check_tab(IDDD) {
     case "past-events-tab":
       console.log("2");
 
-      creatBrandOptions();
+      fetchPastEventList();
       handleEventForm("Past Event", "past-event_form");
       break;
     case "gallery-tab":
@@ -123,7 +123,7 @@ function check_tab(IDDD) {
   console.log("out of switch case");
 }
 
-function handleEventForm(tab, uniqueEventForm) {
+async function handleEventForm(tab, uniqueEventForm) {
   const form = document.getElementById(uniqueEventForm);
   console.log("qq");
   form.addEventListener("submit", async (e) => {
@@ -206,6 +206,7 @@ function handleEventForm(tab, uniqueEventForm) {
         // };
 
         const RefCollection = db.collection("Past Event");
+        const ImagPending = db.collection("Img Pending in Past Event");
         const EventRef = storageRef.child("Past Event/" + past_Title + "-" + past_key);
 
         // console.log(heading);
@@ -215,14 +216,33 @@ function handleEventForm(tab, uniqueEventForm) {
         // console.log(file);
         // console.log(typeof file);
 
+        const snapshot = await ImagPending.get();
+
+        snapshot.forEach((doc) => {
+          console.log(doc.id, "=>", doc.data());
+          const completed_obj = doc.data();
+
+          console.log("12345");
+
+          if (doc.data().key == past_key) {
+            console.log("qqqqqqqqqqqqqqqq");
+
+            console.log(file);
+            console.log(EventRef);
+            console.log(past_Title);
+            console.log(past_key);
+            console.log(RefCollection);
+            console.log(tab);
+            //const Title = doc.data().Title;
+
+            const uploaded = upload_files(file, EventRef, past_key, ImagPending, past_Title, tab);
+
+            //console.log(fullprocess);
+            checkModification(RefCollection);
+          }
+        });
+
         console.log("all values set");
-        //console.log(uniqueObj);
-
-        //RefCollection.doc(past_Title).update({foo: "bar"});
-
-        //addForm(RefCollection, uniqueObj);
-
-        upload_files(file, EventRef, past_key, RefCollection, past_Title, tab);
 
         $("#past-toast").toast("show");
         form.reset();
@@ -377,7 +397,7 @@ async function upload_files(file, EventRef, uniqkey, RefCollection, Title, tab) 
     console.log(element.name);
     console.log(key);
 
-    EventRef.child(uniqkey + "-" + key)
+    await EventRef.child(uniqkey + "-" + key)
       .put(file[key], metadata)
       .then(function (snapshot) {
         console.log("Uploaded a blob or file!");
@@ -420,10 +440,15 @@ async function generateURL(key, RefCollection, Title, tab) {
     });
 }
 
-function addImageURL(url, RefCollection, Title, count) {
+async function addImageURL(url, RefCollection, Title, count) {
   let imageUrl = {};
   imageUrl["url" + count] = url;
-  RefCollection.doc(Title)
+
+  console.log(Title);
+
+  await db
+    .collection("Img Pending in Past Event")
+    .doc(Title)
     .update(imageUrl)
     .then(function () {
       console.log("Success");
@@ -438,7 +463,7 @@ check_tab("upcoming-events-tab");
 async function moveEvent() {
   const timestamp = Date.now();
   const upcomigRef = db.collection("Upcoming Event");
-  const PastRef = db.collection("Past Event");
+  const PastRef = db.collection("Img Pending in Past Event");
 
   console.log(timestamp);
   let obj;
@@ -465,9 +490,7 @@ async function moveEvent() {
       //addForm(PastRef, obj);
       console.log(typeof which_year);
 
-      PastRef.doc(which_year.toString())
-        .collection("events")
-        .doc(obj.Title)
+      PastRef.doc(obj.Title)
         .set(obj)
         .then(function () {
           console.log("Success");
@@ -496,24 +519,76 @@ async function moveEvent() {
 
 moveEvent();
 
-async function creatBrandOptions() {
+async function fetchPastEventList() {
   let count = 1;
   const upcomingToPast = {};
 
   await db
-    .collection("Past Event")
+    .collection("Img Pending in Past Event")
+
     .get()
     .then((querySnapshot) => {
+      console.log(querySnapshot);
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.data().Title);
+        console.log(doc.data());
         upcomingToPast[count] = doc.data().key + " - " + doc.data().Title;
         count++;
       });
     });
 
+  console.log(upcomingToPast);
+
   for (var field in upcomingToPast) {
     console.log(upcomingToPast[field]);
     $('<option value="' + upcomingToPast[field] + '">' + upcomingToPast[field] + "</option>").appendTo("#brand-select");
   }
+}
+
+function deleteDoc(ImagPending, Title) {
+  ImagPending.doc(Title)
+    .delete()
+    .then(function () {
+      console.log("Document successfully deleted!");
+    })
+    .catch(function (error) {
+      console.error("Error removing document: ", error);
+    });
+}
+
+function checkModification(RefCollection) {
+  const ImagPending = db.collection("Img Pending in Past Event");
+
+  const observer = ImagPending.onSnapshot((querySnapshot) => {
+    querySnapshot.docChanges().forEach((change) => {
+      if (change.type === "added") {
+        console.log("New city: ", change.doc.data());
+      }
+      if (change.type === "modified") {
+        console.log("Modified city: ", change.doc.data());
+
+        const obj = change.doc.data();
+        const Title = change.doc.data().Title;
+
+        RefCollection.doc(Title)
+          .set(obj)
+          .then(function () {
+            console.log("Success");
+            console.log(Title);
+            return Title;
+          })
+
+          .then(function (Title) {
+            console.log(Title);
+            deleteDoc(ImagPending, Title);
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
+      }
+      if (change.type === "removed") {
+        console.log("Removed city: ", change.doc.data());
+      }
+    });
+  });
 }

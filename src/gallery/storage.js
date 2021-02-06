@@ -7,42 +7,6 @@ const no_image = 12;
 const db = firebase.firestore();
 const RefCollection = db.collection("Gallery");
 
-function pushToFirestore(url, Name) {
-  let imageUrl = {};
-  imageUrl["url"] = url;
-  RefCollection.doc(Name)
-    .set(imageUrl)
-    .then(function () {
-      console.log("Success");
-    })
-    .catch(function (error) {
-      console.error("Error adding document: ", error);
-    });
-}
-
-function download_image() {
-  function display_image(image) {
-    image.getDownloadURL().then(function (url) {
-      list_url.push(url);
-      console.log(url);
-
-      console.log("size of list = " + list_url.length);
-
-      //pushToFirestore(url, image.name);
-    });
-  }
-
-  storageRef
-    .child("images/")
-    .listAll()
-    .then(function (result) {
-      result.items.forEach(function (images) {
-        display_image(images);
-        console.log(images.name);
-      });
-    });
-}
-
 async function display() {
   await RefCollection.get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
@@ -98,3 +62,19 @@ function click_previous() {
 //download_image();
 page_change();
 display();
+
+const field = "url";
+const pageSize = 3;
+
+const query = RefCollection.orderBy(field).limit(pageSize);
+
+function nextPage(last) {
+  //calculate last document of query
+  return RefCollection.orderBy(field).startAfter(last[field]).limit(pageSize);
+}
+
+function prevPage(first) {
+  //calculate first document of query
+
+  return RefCollection.orderBy(field).endBefore(first[field]).limitToLast(pageSize);
+}

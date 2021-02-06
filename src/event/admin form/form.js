@@ -34,7 +34,7 @@ function signIn() {
 
             if (user.email == doc.data().Email) {
               console.log("ID matched");
-              window.location.assign("../event/form.html");
+              window.location.assign("../admin form/form.html");
             } else {
               $("#error-login").toast("show");
             }

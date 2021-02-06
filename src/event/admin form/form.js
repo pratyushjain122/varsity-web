@@ -570,7 +570,16 @@ function checkModification(RefCollection) {
         const obj = change.doc.data();
         const Title = change.doc.data().Title;
 
-        RefCollection.doc(Title)
+        const timestampToYear = new Date(obj.Timestamp);
+        console.log(timestampToYear.getFullYear());
+
+        const which_year = timestampToYear.getFullYear();
+
+        console.log(which_year);
+
+        RefCollection.doc(which_year.toString())
+          .collection("events")
+          .doc(Title)
           .set(obj)
           .then(function () {
             console.log("Success");

@@ -27,7 +27,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
       integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
       crossorigin="anonymous"
-    />
+    /><script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-storage.js"></script>
@@ -135,9 +139,18 @@
     <div class="container row my-3 pb-3 mx-auto g-4" id="image-container"> </div>
 
     <div class="page-container">
-      <div class="previous_btn" id="previous" onclick="prevPage()">Previous</div>
-      <div id="index" class="page_index"></div>
-      <div class="next_btn" onclick="nextPage()">Next</div>
+      <!-- <div class="previous_btn" id="previous" onclick="prevPage()">Previous</div> -->
+      <!-- <div id="index" class="page_index"></div> -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" id="previous" onclick="prevPage()">Previous</a></li>
+          <li class="page-item active same" id="1" onclick="particular_page(this.id)"><a class="page-link" id="page1">1</a></li>
+          <li class="page-item same" id="2" onclick="particular_page(this.id)"><a class="page-link" id="page2">2</a></li>
+          <li class="page-item same" id="3" onclick="particular_page(this.id)"><a class="page-link" id="page3">3</a></li>
+          <li class="page-item"><a class="page-link" onclick="nextPage()">Next</a></li>
+        </ul>
+      </nav>
+      <!-- <div class="next_btn" onclick="nextPage()">Next</div> -->
     </div>
 
     <!-- FOOTER -->

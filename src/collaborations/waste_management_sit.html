@@ -1,148 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>V@rsity Care - Symbiosis Centre for Waste Resource Management</title>
-  <link rel="icon" href="../../assets/logo3.png" type="image/gif" sizes="16x16" />
-  <link rel="stylesheet" href="../collaborations/collaborations.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
-    integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
-    integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-    crossorigin="anonymous" />
-</head>
-
-<body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light border-bottom border-2 border-secondary">
-    <div class="container-fluid">
-      <a href="../../src/home/index.html"><img src="../../assets/logo1.png" alt="" /></a>
-      <a class="navbar-brand" href="../../src/home/index.html">&nbsp; V@rsity Care</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active text-dark" aria-current="page" href="../home/index.html"> Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="../home/index.html#about-us"> About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="../home/index.html#contact-us"> Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="#"> Past Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="../gallery/gallery.html"> Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="#"> Upcoming Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="../collaborations/collaborations.html"> Collaborations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="../members/members.html"> Members</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- slider(carousel) -->
-  <div id="carouselExampleCaptions" class="carousel slide carousel-dark" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-      <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-      <!-- <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li> -->
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="/assets/collaboration/SymbiWasteManagement_1.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block ">
-          <h5>WASTE MANAGEMENT IN SYMBIOSIS CAMPUS</h5>
-          <p>DATE: January 30, 2020<br>LOCATION: SYMBIOSIS INSTITUTE OF TECHNOLOGY <a href="#post_1" class="readMore">Read more</a>
-          </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>V@rSITy Care | Details</title>
+    <link rel="icon" href="../../assets/logo1.png" type="image/gif" sizes="16x16" />
+    <link rel="stylesheet" href="../collaborations/details.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+      integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light border-bottom border-2 border-secondary">
+      <div class="container-fluid">
+        <a href="../../src/home/index.html"><img src="../../assets/logo1.png" alt="" /></a>
+        <a class="navbar-brand" href="../../src/home/index.html">&nbsp; V@rSITy Care</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active text-dark" aria-current="page" href="../home/index.html"> Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="../home/index.html#about-us"> About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="../home/index.html#contact-us"> Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="../event/past event/past-events.html"> Past Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="../gallery/gallery.html"> Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="../event/upcoming event/upcoming-events.html"> Upcoming Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="../collaborations/collaborations.html"> Collaborations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="../members/members.html"> Members</a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="carousel-item">
-        <img src="/assets/collaboration/SymbiWasteManagement_2.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>WASTE MANAGEMENT IN SYMBIOSIS CAMPUS</h5>
-          <p>DATE: January 30, 2020<br>LOCATION: SYMBIOSIS INSTITUTE OF TECHNOLOGY <a href="#post_1" class="readMore">Read more</a>
-          </p>
+    </nav>
+
+    <!-- CONTENT -->
+    <div>
+      <!-- CAROUSEL -->
+      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../../assets/collaboration/SymbiWasteManagement_1.jpg" class="d-block w-100" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="../../assets/collaboration/SymbiWasteManagement_2.jpg" class="d-block w-100" alt="..." />
+          </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
       </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </a>
-  </div>
-
-
-  <div class="container_post">
-    <div id="post_1" class="post">
-      <div class="post_details">
-        <div class="post_details_heading">
-          <h3 id="h3" class="post_heading">Waste management in Symbiosis Campus</h3>
-        </div>
-        <div class="post_details_content">
-          <p id="p">DATE: January 30, 2020<br><br>
-
-            EVENT: Waste management in Symbiosis campus.<br><br>
-
-            ORGANIZATION: Symbiosis Centre for Waste Resource Management<br><br>
-
-            LOCATION: SIT<br><br>
-
-            A guest lecture on “Waste Management in Symbiosis Campus” was held on 30th January 2020. The guest lecture
-            has been organized by the department of Civil Engineering (CESS) and V@rSITy-care to provide the students
-            with an opportunity to learn about the techniques of water management in the campus. The guest lecture began
-            with welcome address by the President of CESS, Ashwini Kumar. He introduced and welcomed Dr. Manikprabhu
-            Dhanorkar, to deliver the lecture Dr. Manikprabhu Dhanorkar, Deputy Head, Symbiosis Centre for Waste
-            Resource Management (SCWRM) has been recognized as a 'Member of Expert Committee' for Solid Waste Management
-            by Mumbai Agricultural Produce Market Committee (MAPMC), Mumbai, a Corporate body, constituted by Govt. of
-            Maharashtra. The session was then continued by Dr Manikprabhu Dhanorkar, who began with an introduction
-            about his research centre and aim of SCWRM following which, he shed light on the ways in which one wastes
-            the resources which are available around us or are in nature. He gave various examples as wastage of food on
-            a daily basis and how can we reduce it. He emphasized on the mentality of people before wasting the
-            resources. He introduced us to the waste management system in the Symbiosis campus(Hill base and Hill
-            top).He further gave the details of the Septic tank, the biogas plant which converts the waste into CNG and
-            usage of bio trucks for recycling plastic bottle. The session ended with a hearty thanks and presenting of a
-            memento to Dr Manikprabhu Dhanorkar by Sachin Jha in appreciation for taking the time out to educate the
-            students on Waste Management. He thanked the Management for providing the platform to organize guest
-            lectures on innovative technologies.
-          </p>
-        </div>
-      </div>
-
-      <div class="post_images">
-        <div class="post_image">
-          <img src="/assets/collaboration/SymbiWasteManagement_1.jpg" alt="">
-        </div>
-        <div class="post_image">
-          <img src="/assets/collaboration/SymbiWasteManagement_2.jpg" alt="">
+      <div id="content">
+        <div class="row row-cols-md-2">
+          <div class="col">
+            <h2>Waste management in Symbiosis Campus</h2>
+            <h5>DATE: January 30, 2020</h5>
+            <h5>EVENT: Waste management in Symbiosis campus.</h5>
+            <h5>ORGANIZATION: Symbiosis Centre for Waste Resource Management</h5>
+            <h5>LOCATION: SIT</h5>
+            <p>
+              A guest lecture on “Waste Management in Symbiosis Campus” was held on 30th January 2020. The guest lecture
+              has been organized by the department of Civil Engineering (CESS) and V@rSITy-care to provide the students
+              with an opportunity to learn about the techniques of water management in the campus. The guest lecture
+              began with welcome address by the President of CESS, Ashwini Kumar. He introduced and welcomed Dr.
+              Manikprabhu Dhanorkar, to deliver the lecture Dr. Manikprabhu Dhanorkar, Deputy Head, Symbiosis Centre for
+              Waste Resource Management (SCWRM) has been recognized as a 'Member of Expert Committee' for Solid Waste
+              Management by Mumbai Agricultural Produce Market Committee (MAPMC), Mumbai, a Corporate body, constituted
+              by Govt. of Maharashtra. The session was then continued by Dr Manikprabhu Dhanorkar, who began with an
+              introduction about his research centre and aim of SCWRM following which, he shed light on the ways in
+              which one wastes the resources which are available around us or are in nature. He gave various examples as
+              wastage of food on a daily basis and how can we reduce it. He emphasized on the mentality of people before
+              wasting the resources. He introduced us to the waste management system in the Symbiosis campus(Hill base
+              and Hill top).He further gave the details of the Septic tank, the biogas plant which converts the waste
+              into CNG and usage of bio trucks for recycling plastic bottle. The session ended with a hearty thanks and
+              presenting of a memento to Dr Manikprabhu Dhanorkar by Sachin Jha in appreciation for taking the time out
+              to educate the students on Waste Management. He thanked the Management for providing the platform to
+              organize guest lectures on innovative technologies.
+            </p>
+          </div>
+          <div class="col d-flex justify-content-center">
+            <img src="../../assets/collaboration/SymbiWasteManagement_1.jpg" alt="" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
 
+    <!-- FOOTER -->
+    <div>
+      <ul class="nav h-100 pt-3 navbar-dark bg-dark justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="../home/index.html"><h2>V@RSITY CARE</h2></a>
+        </li>
+      </ul>
+      <ul class="nav h-100 pb-4 navbar-dark bg-dark justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UC9m4r1I6igPbFJIJyp-2TyQ" target="_blank">
+            <i class="fab fa-youtube-square fa-2x" style="color: white"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.instagram.com/varsitycare/" target="_blank">
+            <i class="fab fa-instagram-square fa-2x" style="color: white"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.facebook.com/varsitycaresit/" target="_blank">
+            <i class="fab fa-facebook-square fa-2x" style="color: white"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/VrsityCare1/" target="_blank">
+            <i class="fab fa-twitter-square fa-2x" style="color: white"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.linkedin.com/company/varsity-care/" target="_blank">
+            <i class="fab fa-linkedin fa-2x" style="color: white"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>

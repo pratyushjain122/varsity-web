@@ -43,3 +43,20 @@ body::-webkit-scrollbar-thumb {
   min-height: 90vh;
   padding: 50px 100px;
 }
+#content img {
+  width: 500px;
+  height: auto;
+  margin: auto 10px auto 10px;
+}
+
+@media (max-width: 990px) {
+  .carousel .carousel-item {
+    height: auto;
+  }
+  #content img {
+    width: 300px;
+  }
+  #content {
+    padding: 30px 40px;
+  }
+}

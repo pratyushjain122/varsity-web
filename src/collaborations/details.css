@@ -49,6 +49,15 @@ body::-webkit-scrollbar-thumb {
   margin: auto 10px auto 10px;
 }
 
+.card-body {
+  color: white;
+  height: 300px;
+}
+
+.card-text {
+  font-size: 3.5rem;
+}
+
 @media (max-width: 990px) {
   .carousel .carousel-item {
     height: auto;
@@ -58,5 +67,11 @@ body::-webkit-scrollbar-thumb {
   }
   #content {
     padding: 30px 40px;
+  }
+  .card-body {
+    height: 200px;
+  }
+  .card-text {
+    font-size: 2rem;
   }
 }

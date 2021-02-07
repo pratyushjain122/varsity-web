@@ -248,7 +248,7 @@ async function handleEventForm(tab, uniqueEventForm) {
         form.reset();
         break;
       }
-      case "gallery": {
+      case "Gallery": {
         //const category = document.getElementById("gallery-category").value;
         const date = document.getElementById("gallery-date").value;
         const file = document.getElementById("gallery-file").files;
@@ -270,7 +270,7 @@ async function handleEventForm(tab, uniqueEventForm) {
 
         console.log(date);
         console.log(uniqkey);
-        console.log(file);
+        console.log(file.name);
         console.log(typeof file);
 
         console.log("all values set");
@@ -285,8 +285,18 @@ async function handleEventForm(tab, uniqueEventForm) {
             console.error("Error adding document: ", error);
           });
 
-        upload_files(file, EventRef, uniqkey);
+        for (let key = 0; key < Object.keys(file).length; key++) {
+          //if (file.hasOwnProperty(key)) {
+          const element = file[key];
+          const metadata = {
+            contentType: file.type,
+          };
 
+          console.log(element.name);
+          console.log(key);
+
+          upload_files(file, EventRef, uniqkey, RefCollection, element.name, tab);
+        }
         $("#gallery-toast").toast("show");
         form.reset();
         break;

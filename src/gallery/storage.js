@@ -119,7 +119,10 @@ load();
 async function nextPage(page_count) {
   //calculate last document of query
 
+  console.log(page_count);
+
   if (page_no <= page_count) {
+    console.log("page change can happen");
     page_no++;
     page_change();
   }

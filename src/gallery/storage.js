@@ -10,169 +10,120 @@ const RefCollection = db.collection("Gallery");
 let lastdoc = null;
 let firstdoc = null;
 
-async function display() {
-  const ref = RefCollection.orderBy("createdAt")
-    .startAfter(lastdoc || 0)
-    .limit(6);
-
-  const data = await ref.get();
-
-  data.docs.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    //console.log(doc.id, " => ", doc.data());
-    list_url.push(doc.data().url);
-  });
-  lastdoc = data.docs[data.docs.length - 1];
-  firstdoc = data.docs[0];
-  // await RefCollection.get().then((querySnapshot) => {
-  //   querySnapshot.forEach((doc) => {
-  //     // doc.data() is never undefined for query doc snapshots
-  //     //console.log(doc.id, " => ", doc.data());
-  //     list_url.push(doc.data().url);
-  //   });
-
-  // });
-
-  console.log(list_url);
-  console.log(lastdoc);
-
-  var start = no_image * (page - 1);
-  var end = no_image * page;
-  document.getElementById("image-container").innerHTML = "";
-  for (var x = 0; x < list_url.length; x++) {
-    var html_insert = '<div class="item col-md-4"><img class="image" src="' + list_url[x] + '" alt="gallery_image"></div>';
-    console.log(html_insert);
-    document.getElementById("image-container").innerHTML += html_insert;
-  }
-}
-
-function page_change() {
-  document.getElementById("page1").innerHTML = page_no;
-  document.getElementById("1").id = page_no;
-  document.getElementById("page2").innerHTML = page_no + 1;
-  document.getElementById("2").id = page_no + 1;
-  document.getElementById("page3").innerHTML = page_no + 2;
-  document.getElementById("3").id = page_no + 2;
-}
-
-function particular_page(id) {
-  const el = document.getElementById(id);
-
-  $(".same").click(function () {
-    // Select all list items
-    var listItems = $(".same");
-
-    // Remove 'active' tag for all list items
-    for (let i = 0; i < listItems.length; i++) {
-      listItems[i].classList.remove("active");
-    }
-
-    // Add 'active' tag for currently selected item
-    el.classList.add("active");
-  });
-  console.log(el);
-  console.log(temp_count);
-  console.log(page_no);
-}
-
-function click_next() {
-  console.log("Next clicked");
-  if (page + 1 < list_url.length / no_image) {
-    page++;
-    console.log("next fxn");
-    console.log("page now = " + page);
-    display();
-  }
-  console.log("page number = " + page);
-  page_change();
-}
-
-function click_previous() {
-  console.log("previous clicked");
-  if (page - 1 >= 1) {
-    page--;
-    console.log("page now = " + page);
-    console.log("page updated to = " + page);
-    console.log("previous fxn");
-    display();
-  }
-  page_change();
-  console.log("page number = " + page);
-}
-
-// download_image() should run before
-// display() should run only when download_image() has completely executed
-//download_image();
-//page_change();
-//display();
+let firstime = 1,
+  temp_count;
 
 const field = "url";
 const pageSize = 3;
 
 const query = RefCollection.orderBy(field).limit(pageSize);
 
-let firstime = 1,
-  temp_count;
+// function page_change() {
+//   document.getElementById("page1").innerHTML = page_no;
+//   document.getElementById("1").id = page_no;
+//   document.getElementById("page2").innerHTML = page_no + 1;
+//   document.getElementById("2").id = page_no + 1;
+//   document.getElementById("page3").innerHTML = page_no + 2;
+//   document.getElementById("3").id = page_no + 2;
+// }
 
-load();
+// function particular_page(id) {
+//   const el = document.getElementById(id);
 
-async function nextPage(page_count) {
+//   $(".same").click(function () {
+//     // Select all list items
+//     var listItems = $(".same");
+
+//     // Remove 'active' tag for all list items
+//     for (let i = 0; i < listItems.length; i++) {
+//       listItems[i].classList.remove("active");
+//     }
+
+//     // Add 'active' tag for currently selected item
+//     el.classList.add("active");
+//   });
+//   console.log(el);
+//   console.log(temp_count);
+//   console.log(page_no);
+// }
+
+async function nextPage() {
   //calculate last document of query
 
-  console.log(page_count);
+  console.log(temp_count);
+  console.log(page_no);
 
-  if (page_no <= page_count) {
+  if (page_no < temp_count) {
     console.log("page change can happen");
     page_no++;
-    page_change();
-  }
 
-  let list_url = [];
-  console.log(lastdoc);
+    let list_url = [];
+    console.log(lastdoc);
 
-  if (firstime == 1) {
-    console.log("null");
-    document.getElementById("previous").style.visibility = "hidden";
+    if (firstime == 1) {
+      console.log("null");
+      document.getElementById("previous").style.visibility = "hidden";
+    } else {
+      document.getElementById("previous").style.visibility = "visible";
+    }
+
+    firstime = 0;
+
+    const ref = RefCollection.orderBy("createdAt").startAfter(lastdoc).limit(6);
+
+    const data = await ref.get();
+
+    data.docs.forEach((doc) => {
+      list_url.push(doc.data().url);
+    });
+    lastdoc = data.docs[data.docs.length - 1];
+    firstdoc = data.docs[0];
+    console.log(list_url);
+    console.log(lastdoc);
+
+    print_image(list_url);
   } else {
-    document.getElementById("previous").style.visibility = "visible";
+    console.log("NOT POSSIBLE");
   }
-
-  firstime = 0;
-
-  const ref = RefCollection.orderBy("createdAt").startAfter(lastdoc).limit(6);
-
-  const data = await ref.get();
-
-  data.docs.forEach((doc) => {
-    list_url.push(doc.data().url);
-  });
-  lastdoc = data.docs[data.docs.length - 1];
-  firstdoc = data.docs[0];
-  console.log(list_url);
-  console.log(lastdoc);
-
-  print_image(list_url);
 }
 
 async function prevPage() {
   //calculate first document of query
-  page_no--;
-  page_change();
-  let list_url = [];
-  console.log(firstdoc);
-  const ref = RefCollection.orderBy("createdAt").endBefore(firstdoc).limitToLast(6);
-  const data = await ref.get();
+  console.log(temp_count);
+  console.log(page_no);
 
-  data.docs.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    //console.log(doc.id, " => ", doc.data());
-    list_url.push(doc.data().url);
-  });
-  lastdoc = data.docs[data.docs.length - 1];
-  firstdoc = data.docs[0];
-  console.log(list_url);
-  console.log(lastdoc);
-  print_image(list_url);
+  // if (page_no >= temp_count) {
+  //   console.log("page REVERT can happen");
+  //   page_no--;
+  //   //page_change();
+  // } else {
+  //   console.log("NOT POSSIBLE");
+  // }
+
+  if (page_no > 1 && page_no <= temp_count) {
+    console.log("page REVERT can happen");
+    page_no--;
+
+    let list_url = [];
+    console.log(firstdoc);
+    const ref = RefCollection.orderBy("createdAt").endBefore(firstdoc).limitToLast(6);
+    const data = await ref.get();
+
+    data.docs.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      //console.log(doc.id, " => ", doc.data());
+      list_url.push(doc.data().url);
+    });
+    lastdoc = data.docs[data.docs.length - 1];
+    firstdoc = data.docs[0];
+    console.log(list_url);
+    console.log(lastdoc);
+    print_image(list_url);
+  } else {
+    console.log("NOT REVERT");
+  }
+
+  console.log(page_no);
 }
 
 async function print_image(list_url) {
@@ -200,8 +151,10 @@ async function page_cal() {
 
 async function load() {
   const page_count = await page_cal();
-  temp_count = page_count.image_count;
+  temp_count = page_count.total_pages;
 
   console.log(temp_count);
-  nextPage(page_count.total_pages);
+  nextPage();
 }
+
+load();

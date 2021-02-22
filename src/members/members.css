@@ -52,12 +52,19 @@ main {
   padding: 30px 100px 30px 100px;
 }
 
-#faculty {
-  background-color: #111;
-  padding: 0 100px 0 100px;
-  margin-top: 0;
+/*#faculty {
+  background-color: #4b6cb7;
+  background: -webkit-linear-gradient(to right, #182848, #4b6cb7); /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(
+    to right,
+    #182848,
+    #4b6cb7
+  );*/
+  
+  /*padding: 0 100px 0 100px;*/
+  /*margin-top: 0;
   margin-bottom: 0;
-}
+}*/
 
 #team {
   background-color: rgb(27, 26, 26);
@@ -66,7 +73,7 @@ main {
 
 main img,
 #faculty img {
-  height: 200px;
+  height: 260px;
 }
 
 @media (max-width: 990px) {

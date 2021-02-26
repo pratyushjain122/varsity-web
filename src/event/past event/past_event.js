@@ -31,7 +31,7 @@ for (let i = 0; i < arr_year.length; i++) {
             doc.data().Title +
             '</h5><p class="card-text" id="desc_2021">' +
             doc.data().description +
-            "</p></div></div></div>";
+            '</p><div class="d-flex justify-content-end"><a href="#" target="_blank"><img src="../../../assets/youtube.png" alt="YT" width="35px" class="me-2" /></a><a href="#" target="_blank"><img src="../../../assets/instagram.png" alt="Insta" width="35px" class="me-2" /></a><a href="#" target="_blank"><img src="../../../assets/facebook.png" alt="FB" width="35px" /></a></div></div></div></div>";';
 
           document.getElementById("container-" + arr_year[i]).innerHTML += html_insert;
         }

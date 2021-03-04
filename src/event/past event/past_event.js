@@ -35,7 +35,7 @@ for (let i = 0; i < arr_year.length; i++) {
               doc.data().description +
               '</p><div class="d-flex justify-content-end"><a href="' +
               doc.data().youtube_link +
-              '" target="_blank"><img src="https://www.flaticon.com/svg/vstatic/svg/1384/1384060.svg?token=exp=1614892868~hmac=0e0c8cf19da24621c690b45e748dc804" alt="YT" width="55px" class="me-2" /></a></div></div></div></div>";';
+              '" target="_blank"><img id="youtube" src="https://www.flaticon.com/svg/vstatic/svg/185/185983.svg?token=exp=1614893969~hmac=f7ceb2469465912d60369fd7a462213d" alt="YT" class="me-2" /></a></div></div></div></div>";';
           } else {
             var html_insert =
               '<div class="col"><div class="card border-dark mb-3" style="max-width: 28rem"><div class="img-card"><img src="' +

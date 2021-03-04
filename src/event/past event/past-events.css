@@ -60,6 +60,9 @@ body::-webkit-scrollbar-thumb {
   border-radius: 5%;
   border-style: ridge;
 }
+#youtube {
+  width: 50px;
+}
 
 @media (max-width: 990px) {
   #content {
@@ -67,5 +70,8 @@ body::-webkit-scrollbar-thumb {
   }
   .card {
     margin: 0;
+  }
+  #youtube {
+    width: 40px;
   }
 }

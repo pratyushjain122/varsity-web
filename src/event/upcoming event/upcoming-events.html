@@ -38,7 +38,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light border-bottom border-2 border-secondary">
       <div class="container-fluid">
-        <a href="../../src/home/index.html"><img src="../../../assets/logo1.png" alt="" /></a>
+        <a href="../../home/index.html"><img src="../../../assets/logo1.png" alt="" /></a>
         <a class="navbar-brand" href="../../home/index.html">&nbsp; V@rSITy Care</a>
         <button
           class="navbar-toggler"
@@ -155,8 +155,12 @@
     </div>
 
     <!-- SCRIPTS -->
-
     <script src="../../firebase/firebase.js"></script>
     <script src="../event.js"></script>
+    <script>
+      $(".nav-link").on("click", function () {
+        $(".navbar-collapse").collapse("hide");
+      });
+    </script>
   </body>
 </html>

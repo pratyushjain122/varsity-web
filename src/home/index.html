@@ -58,7 +58,7 @@
               <a class="nav-link active text-dark" aria-current="page" href="../home/index.html"> Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="../home/index.html#about-us"> About Us</a>
+              <a class="nav-link text-dark" href="../home/index.html#about-us"> About Us </a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-dark" href="../home/index.html#contact-us"> Contact Us</a>
@@ -125,8 +125,8 @@
 
     <div id="content">
       <!-- ABOUT US -->
-      <div class="about-us row" id="about-us">
-        <div>
+      <div class="about-us row">
+        <div id="about-us">
           <h2 class="head"><i class="fas fa-address-card" style="color: black"></i> ABOUT US</h2>
         </div>
         <div class="card text-white bg-dark mb-30 py-2">
@@ -219,9 +219,9 @@
       </div>
 
       <!-- CONTACT US -->
-      <div class="contact-us row pt-5 mb-0 pb-0" id="contact-us">
+      <div class="contact-us row pt-5 mb-0 pb-0">
         <div class="text">
-          <h3 class="head" style="color: black">📱 CONTACT US</h3>
+          <h3 class="head" style="color: black" id="contact-us">📱 CONTACT US</h3>
         </div>
         <div class="col-md-6">
           <form id="contact" class="col g-2 needs-validation" novalidate>
@@ -352,5 +352,10 @@
     <!-- SCRIPTS -->
     <script src="../firebase/firebase.js"></script>
     <script src="app.js"></script>
+    <script>
+      $(".nav-link").on("click", function () {
+        $(".navbar-collapse").collapse("hide");
+      });
+    </script>
   </body>
 </html>

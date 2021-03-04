@@ -29,6 +29,10 @@
       integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
       crossorigin="anonymous"
     />
+
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-storage.js"></script>
   </head>
   <body style="background-color: rgba(10, 10, 10, 0.876)">
     <!-- NAVBAR -->
@@ -104,54 +108,34 @@
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-3 g-2">
-                <div class="col">
+              <div class="row row-cols-1 row-cols-md-3 g-2" id="container-2021">
+                <!-- <div class="col">
                   <div class="card border-dark mb-3" style="max-width: 28rem">
                     <div class="img-card">
-                      <img src="../../../assets/past_events/2021_cancer_day.png" class="card-img-top" alt="..." />
+                      <img
+                        src="../../../assets/past_events/2021_cancer_day.png"
+                        id="img_2021"
+                        class="card-img-top"
+                        alt="..."
+                      />
                     </div>
                     <div class="card-body text-dark">
-                      <h5 class="card-title">Weekly posts</h5>
-                      <p class="card-text">
+                      <h5 class="card-title" id="post_2021">Weekly posts</h5>
+                      <p class="card-text" id="desc_2021">
                         V@rSITy Care made this post using the theme colors of world cancer day (orange and blue). The
                         main goal for the stories was to engage and educate people about cancer. It was a team effort in
                         collection of data which expressed the important points in a concise manner and design them to
                         be appealing to the eye. The quiz helped us to interact with the audience and the victim stories
                         helped us to show that there is a light at the end of this tunnel and spread positive mindset.
                       </p>
-                      <div class="d-flex justify-content-end">
-                        <a href="https://www.youtube.com/" target="_blank">
-                          <img src="../../../assets/youtube.png" alt="YT" width="35px" class="me-2" />
-                        </a>
-                        <a href="https://www.instagram.com/" target="_blank">
-                          <img src="../../../assets/instagram.png" alt="Insta" width="35px" class="me-2" />
-                        </a>
-                        <a href="https://www.facebook.com/" target="_blank">
-                          <img src="../../../assets/facebook.png" alt="FB" width="35px" />
-                        </a>
-                      </div>
                     </div>
                   </div>
-                </div>
-                <!-- <div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/Symbiosis_Institute_Of_Technol.png" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Event 2</h5>
-                      <p class="card-text">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur officia aspernatur veniam
-                        minus, repellendus in itaque nulla, harum velit vitae quasi fugit delectus tempore excepturi
-                        doloribus, ex earum nesciunt accusamus!
-                      </p>
-                    </div>
-                  </div>
-                </div>  -->
+                </div> -->
               </div>
             </div>
           </div>
         </div>
+
         <!-- 2020 -->
         <div class="accordion-item">
           <h1 class="accordion-header" id="headingTwo">
@@ -174,122 +158,11 @@
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-3 g-2">
-                <div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2020_webinar1.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Webinar 1: Dealing with Uncertainties</h5>
-                      <p class="card-text">
-                        A webinar on in collaboration with Abhyuday, The Social Body of IIT Bombay, was held to create
-                        awareness and positivity among people during the tough time everyone is going through. It was an
-                        amazing session making everyone understand that even though the life is full of uncertainties,
-                        important thing is that one must look for positive aspects and adapt to the changes to lead a
-                        stress- free life.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2020_webinar2.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Webinar 2 : Combating the Enemy within Depression</h5>
-                      <p class="card-text">
-                        A webinar was held in collaboration with Abhyuday, The Social Body of IIT Bombay, explaining the
-                        difference between sadness and depression. The webinar made everyone understand that rather
-                        being judgemental, people should be more compassionate towards the one who are facing such
-                        problems so that they can talk more openly about it without being afraid of any stigma.
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2020_teacher_day.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Teacher’s day celebration</h5>
-                      <p class="card-text">
-                        On the occasion of teacher’s day, V@rSITy Care joined hands with the three pro-active clubs of
-                        the college(EPIC, CESS and MESA) to organize a grand event for the teachers. The event was
-                        conducted online on Microsoft Teams where teachers shared their funny teaching experiences and
-                        various games like ‘BOLLYWOOD GUESS’ , completing some interesting story lines, online TAMBOLA
-                        were conducted.
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2020_spread_a_bite.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Spread a bite</h5>
-                      <p class="card-text">
-                        On the occasion of International Day of Charity, 5th September, 2020 ,V@rSITy Care had
-                        collaborated with Rotaract Club of Thane North End to provide nutritious food to the
-                        underprivileged people. Around 50 people were provided with the amount collected. V@rSITy Care
-                        has decided to continue this drive for another month.
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2020_v_for_azadi.jpg"" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Independence Day(VforAzaadi)</h5>
-                      <p class="card-text">
-                        On the proud occasion of 74th INDEPENDENCE DAY, V@rSITy Care started a challenge to post a photo
-                        or a video that makes you feel liberated. Innumerable people from the college and outside the
-                        college participated in the challenge, letting go of the fear of being judged and embracing our
-                        flaws.
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2020_blue_skies.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Clean Air for Blue Skies</h5>
-                      <p class="card-text">
-                        Under the initiative of the United Nations , the first-ever International Day of Clean Air for
-                        Blue Skies was celebrated on 7th September,2020. V@rSITy Care celebrated this day by sharing the
-                        pictures of people holding placards, spreading the awareness on Instagram. The main motive was
-                        to emphasize on the ill-effects of the air population and bringing focus on the collective call
-                        to action against the environmental evil.
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2020_int_girl_day.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">International Day of the Girl</h5>
-                      <p class="card-text">
-                        To glorify the International Day of the Girl, a wonderful video was prepared, wherein the family
-                        members of the club put forth certain situations, and the male members of the club had to
-                        describe how they would react in such situations. Additionally, there was an amazing hashtag
-                        challenge called #GirlsHurlTheWorld where the female members of the club had to state what they
-                        love about being a girl.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div class="row row-cols-1 row-cols-md-3 g-2" id="container-2020"> </div>
             </div>
           </div>
         </div>
+
         <!-- 2019 -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingThree">
@@ -312,122 +185,11 @@
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-3 g-2">
-                <div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img
-                        src="../../../assets/past_events/2019_pukaar_foundation.jpg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Pukaar Donation Drive</h5>
-                      <p class="card-text">
-                        On August 2019, V@rSITy Care joined hands with Karishmaa Care, an organization which works for
-                        the empowerment of the affected people. A donation drive was also organized in the college which
-                        was successful with a collection of INR 33k+. This small effort from everybody might have put up
-                        big, bright smiles on a thousand faces.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2019_animal_workshop.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Animal Workshop</h5>
-                      <p class="card-text">
-                        The PCMC volunteers organized a workshop on “First Aid for Stray Animals”. Many animal lovers
-                        from across the city participated in this workshop. It was conducted by Dr.PrashantChanney.
-                        where many diseases encountered by stray animals were discussed and their treatment methods were
-                        also explained very well.
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2019_rha.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">RHA kids visit to campus:</h5>
-                      <p class="card-text">
-                        January 25,2020 witnessed the visit of Robin Hood Academy’s students to Symbiosis Institute of
-                        Technology, in collaboration with V@rSITy Care. Team V@rSITy invited the students to inculcate
-                        the zeal to pursue higher education in them. The main aim was to build excitement amongst the
-                        students by performing simple experiments. The Republic Day eve could not have been any better.
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2019_kirti_garden.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Cleaning Kirti Garden every Sunday</h5>
-                      <p class="card-text">
-                        Every Sunday, a team of 5-10 volunteers would leave for the Kirti Garden by 7:00 am bus. Each
-                        member was provided with a pair of hand gloves. The team used to head towards the place carrying
-                        garbage bags and collected all the plastic as well as the other wastes. Regular cleaning and
-                        watering of the area had shown great results as the amount of garbage being collected was
-                        reducing every week.
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2019_plantation_drive.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Plantation drive</h5>
-                      <p class="card-text">
-                        On the proud occasion of ‘INDEPENDENCE DAY’ , V@rSITy Care planned on having a plantation drive
-                        to mark our tribute to the ones who work fearlessly for the country; for us , and to take a
-                        small step towards having a green world. The work was appreciated by the faculty as well as
-                        other college students.
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2019_zila_parishad.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Zila Parishad School, Lavale Painting</h5>
-                      <p class="card-text">
-                        On 6th and 7th April, 2019 , V@rSITy Care volunteers went to Z.P. School, Lavale. The day
-                        started with cleaning off room and removing all the dust. This was followed by whitewashing of
-                        walls on 6th April and painting the walls on 7th April.
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2019_teaching_kids.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Teaching kids near the campus at labour camp</h5>
-                      <p class="card-text">
-                        Every Friday, a team of 10 students teach the students from the labour camp, located near the
-                        college hostels. This teaching program aims at providing the underprivileged students with basic
-                        knowledge and etiquettes. The sessions were made joyful by conducting fun activities like
-                        drawing, getting hand impressions, and many more.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div class="row row-cols-1 row-cols-md-3 g-2" id="container-2019"> </div>
             </div>
           </div>
         </div>
+
         <!-- 2018 -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingFour">
@@ -450,120 +212,7 @@
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <div class="row row-cols-1 row-cols-md-3 g-2">
-                <div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2018_guard_teaching.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Women's Day</h5>
-                      <p class="card-text">
-                        V@rSITy Care aimed to get the guards, mausa/mausi’s fluent with daily calculations, usage of
-                        mobile phones, so as to make their lives more easier than before. The team was divided into
-                        groups wherein the volunteers talked to guards about their interests, taught them basic things
-                        like calculation, videocalling etc and made them feel comfortable and friendly.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2018_sinhagad.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Cleanliness Trek at Sinhagad Fort</h5>
-                      <p class="card-text">
-                        A cleanliness drive was scheduled on 26th August,2018, wherein around 25 volunteers from the
-                        group went along to clean the Trek mountains of Sinhagad Fort. Amongst traffic jams and rains,
-                        it was everyone’s spirit and passion that made the place free from plastics and polythenes.
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2018_mime.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Mime Act</h5>
-                      <p class="card-text">
-                        This was a social drama of 5-6 minutes depicting about the social evils in the society, like
-                        differences related to black people, fat people, mentally disturbed people and physically
-                        challenged people. Around 10 volunteers took part in act of Mime which was used as stage
-                        performance .
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2018_sadbhavna.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Sadbhavna Divas</h5>
-                      <p class="card-text">
-                        In September,2019 ,V@rSITy Care celebrated Sadbhavna Diwas wherein blankets were distributed to
-                        our blue collared friends. The ceremony was encouraged and enlightened by handing over the gifts
-                        to blue collared friends, which left a beautiful smile on their faces .
-                      </p>
-                    </div>
-                  </div> </div
-                ><div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2018_paani_foundation.jpg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Paani Foundation</h5>
-                      <p class="card-text">
-                        On 1st May, Maharashtra Day, V@rSITy Care joined the Maharashramdaan, a rainwater harvesting and
-                        watershed management project arranged by the Paani Foundation, to make Maharashtra drought free.
-                        The volunteers were taken on a tour in the village to show the different water conservation
-                        techniques which they have taken up. This visit gave the volunteers, a deeper and practical
-                        insight into rainwater harvesting and the water crisis that we are facing.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img
-                        src="../../../assets/past_events/2018_sus_gaon_cleanliness.jpeg"
-                        class="card-img-top"
-                        alt="..."
-                      />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Cleanliness drive in Sus Gaon</h5>
-                      <p class="card-text">
-                        A cleanliness drive was organized in collaboration with SIU wherein the team was divided into
-                        groups, and was put to clean the streets of Sus Gaon. The people of Sus Gaon and the teams,
-                        started the cleanliness drive after worshiping in the temple. Plastics, polythene bags,
-                        biodegradable and non-biodegradable wastes were collected separately.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card border-dark mb-3" style="max-width: 28rem">
-                    <div class="img-card">
-                      <img src="../../../assets/past_events/2018_pulwama.jpeg" class="card-img-top" alt="..." />
-                    </div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">Paid tribute to Pulwama Attack Martyrs</h5>
-                      <p class="card-text">
-                        To pay tribute to our Martyred CRPF Jawans in Pulwama Attack, everyone wore black on the day,
-                        assembled and wrote their feelings regarding the attack on Board near SIT Entrance. Roses were
-                        kept and candles were lighted up in the memory of our Jawans.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div class="row row-cols-1 row-cols-md-3 g-2" id="container-2018"> </div>
             </div>
           </div>
         </div>
@@ -609,6 +258,8 @@
     </div>
 
     <!-- SCRIPTS -->
+    <script src="../../firebase/firebase.js"></script>
+    <script src="past_event.js"></script>
     <script>
       $(".nav-link").on("click", function () {
         $(".navbar-collapse").collapse("hide");

@@ -5,6 +5,7 @@ const storageRef = storage.ref();
 let dataEnd;
 
 const docRef = db.collection("Credentials").doc("Admin");
+const cal_ref = db.collection("Calculations").doc("Gallery image count");
 
 function signIn() {
   console.log("ss");
@@ -289,13 +290,15 @@ async function handleEventForm(tab, uniqueEventForm) {
         console.log(file.type);
         console.log(metadata);
 
+        // const key = "keyy";
+
         RefCollection.doc(uniqueObj.Date + " - " + uniqkey)
           .set(uniqueObj)
           .then(function () {
             console.log("Success");
           })
           .then(async () => {
-            await EventRef.child(uniqkey)
+            await EventRef.child(uniqueObj.Date + " - " + uniqkey)
               .put(file, metadata)
               .then(function (snapshot) {
                 console.log("Uploaded a blob or file!");
@@ -312,7 +315,7 @@ async function handleEventForm(tab, uniqueEventForm) {
                     image
                       .getDownloadURL()
                       .then(function (url) {
-                        console.log(url);
+                        //console.log(url);
                         count++;
                         return url;
                       })
@@ -340,6 +343,8 @@ async function handleEventForm(tab, uniqueEventForm) {
           });
 
         //upload_files(file, EventRef, uniqkey, RefCollection, element.name, tab);
+        const increment = firebase.firestore.FieldValue.increment(1);
+        cal_ref.update({ image_count: increment });
 
         $("#gallery-toast").toast("show");
         form.reset();

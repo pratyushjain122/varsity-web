@@ -1,8 +1,4 @@
-var storage = firebase.storage();
-var storageRef = storage.ref();
-//var list_url = [];
 let page_no = 0; //change this to 1
-const no_image = 12;
 
 const db = firebase.firestore();
 const RefCollection = db.collection("Gallery");
@@ -14,7 +10,7 @@ let firstime = 1,
   temp_count;
 
 const field = "url";
-const pageSize = 3;
+const pageSize = 5;
 
 const query = RefCollection.orderBy(field).limit(pageSize);
 
@@ -69,7 +65,7 @@ async function nextPage() {
 
     firstime = 0;
 
-    const ref = RefCollection.orderBy("createdAt").startAfter(lastdoc).limit(6);
+    const ref = RefCollection.orderBy("Date").startAfter(lastdoc).limit(9);
 
     const data = await ref.get();
 
@@ -79,7 +75,7 @@ async function nextPage() {
     lastdoc = data.docs[data.docs.length - 1];
     firstdoc = data.docs[0];
     console.log(list_url);
-    console.log(lastdoc);
+    //console.log(lastdoc);
 
     print_image(list_url);
   } else {
@@ -106,7 +102,7 @@ async function prevPage() {
 
     let list_url = [];
     console.log(firstdoc);
-    const ref = RefCollection.orderBy("createdAt").endBefore(firstdoc).limitToLast(6);
+    const ref = RefCollection.orderBy("createdAt").endBefore(firstdoc).limitToLast(9);
     const data = await ref.get();
 
     data.docs.forEach((doc) => {

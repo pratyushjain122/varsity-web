@@ -16,7 +16,7 @@ for (let i = 0; i < arr_year.length; i++) {
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log("A");
-        if (doc.data().url1) {
+        if (doc.data().imageUrl.url1) {
           // if first url is present
           console.log(doc.data());
           const timestamp = new Date(doc.data().Timestamp);
@@ -24,14 +24,28 @@ for (let i = 0; i < arr_year.length; i++) {
           // document.getElementById("post_2021").innerHTML = doc.data().Title;
           // document.getElementById("desc_2021").innerHTML = doc.data().description;
           // document.getElementById("img_2021").src = doc.data().url1;
-          var html_insert =
-            '<div class="col"><div class="card border-dark mb-3" style="max-width: 28rem"><div class="img-card"><img src="' +
-            doc.data().url1 +
-            '" id="img_2021" class="card-img-top" alt="..." /></div><div class="card-body text-dark"><h5 class="card-title" id="post_2021">' +
-            doc.data().Title +
-            '</h5><p class="card-text" id="desc_2021">' +
-            doc.data().description +
-            '</p><div class="d-flex justify-content-end"><a href="#" target="_blank"><img src="../../../assets/youtube.png" alt="YT" width="35px" class="me-2" /></a><a href="#" target="_blank"><img src="../../../assets/instagram.png" alt="Insta" width="35px" class="me-2" /></a><a href="#" target="_blank"><img src="../../../assets/facebook.png" alt="FB" width="35px" /></a></div></div></div></div>";';
+
+          if (doc.data().youtube_link) {
+            var html_insert =
+              '<div class="col"><div class="card border-dark mb-3" style="max-width: 28rem"><div class="img-card"><img src="' +
+              doc.data().imageUrl.url1 +
+              '" id="img_2021" class="card-img-top" alt="..." /></div><div class="card-body text-dark"><h5 class="card-title" id="post_2021">' +
+              doc.data().Title +
+              '</h5><p class="card-text" id="desc_2021">' +
+              doc.data().description +
+              '</p><div class="d-flex justify-content-end"><a href="' +
+              doc.data().youtube_link +
+              '" target="_blank"><img src="../../../assets/youtube.png" alt="YT" width="35px" class="me-2" /></a></div></div></div></div>";';
+          } else {
+            var html_insert =
+              '<div class="col"><div class="card border-dark mb-3" style="max-width: 28rem"><div class="img-card"><img src="' +
+              doc.data().imageUrl.url1 +
+              '" id="img_2021" class="card-img-top" alt="..." /></div><div class="card-body text-dark"><h5 class="card-title" id="post_2021">' +
+              doc.data().Title +
+              '</h5><p class="card-text" id="desc_2021">' +
+              doc.data().description +
+              '</p></div></div></div>";';
+          }
 
           document.getElementById("container-" + arr_year[i]).innerHTML += html_insert;
         }

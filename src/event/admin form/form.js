@@ -178,7 +178,7 @@ async function handleEventForm(tab, uniqueEventForm) {
         //const description = document.getElementById("past-description").value;
         //const date = document.getElementById("past-date").value;
         const file = document.getElementById("past-file").files;
-
+        const youtube_link = document.getElementById("youtube_link").value;
         // let dateSplit = date.split("-");
 
         // var newDate = new Date(dateSplit[0], dateSplit[1] - 1, dateSplit[2]);
@@ -233,9 +233,10 @@ async function handleEventForm(tab, uniqueEventForm) {
             console.log(past_key);
             console.log(RefCollection);
             console.log(tab);
+            console.log(youtube_link);
             //const Title = doc.data().Title;
 
-            const uploaded = upload_files(file, EventRef, past_key, ImagPending, past_Title, tab);
+            const uploaded = upload_files(file, EventRef, past_key, ImagPending, past_Title, tab, youtube_link);
 
             //console.log(fullprocess);
             checkModification(RefCollection);
@@ -251,11 +252,21 @@ async function handleEventForm(tab, uniqueEventForm) {
       case "Gallery": {
         //const category = document.getElementById("gallery-category").value;
         const date = document.getElementById("gallery-date").value;
-        const file = document.getElementById("gallery-file").files;
+        const file = document.getElementById("gallery-file").files[0];
 
         var e = document.getElementById("gallery-category");
         var category = e.options[e.selectedIndex].text;
         console.log(category);
+
+        const RefCollection = db.collection("Gallery");
+        const EventRef = storageRef.child("Gallery/" + "Grid View");
+
+        //for (let key = 0; key < Object.keys(file).length; key++) {
+
+        const element = file;
+        const metadata = {
+          contentType: file.type,
+        };
 
         const uniqueObj = {
           category: category,
@@ -263,40 +274,73 @@ async function handleEventForm(tab, uniqueEventForm) {
           key: uniqkey,
         };
 
-        const RefCollection = db.collection("Gallery");
-        const EventRef = storageRef.child("Gallery/" + uniqkey);
-
         console.log(category);
 
         console.log(date);
         console.log(uniqkey);
-        console.log(file.name);
+        //console.log(file.name);
         console.log(typeof file);
 
         console.log("all values set");
         console.log(uniqueObj);
 
-        RefCollection.doc(uniqueObj.Date)
+        console.log(element.name);
+        //console.log(key);
+        console.log(file.type);
+        console.log(metadata);
+
+        RefCollection.doc(uniqueObj.Date + " - " + uniqkey)
           .set(uniqueObj)
           .then(function () {
             console.log("Success");
+          })
+          .then(async () => {
+            await EventRef.child(uniqkey)
+              .put(file, metadata)
+              .then(function (snapshot) {
+                console.log("Uploaded a blob or file!");
+                //generateURL(uniqkey, RefCollection, Title, tab, youtube_link);
+              })
+              .then(async () => {
+                let count = 0;
+                console.log("function called");
+                //console.log(Title);
+                await EventRef.listAll().then(function (result) {
+                  result.items.forEach(function (image) {
+                    //   display_image(images);
+
+                    image
+                      .getDownloadURL()
+                      .then(function (url) {
+                        console.log(url);
+                        count++;
+                        return url;
+                      })
+                      .then(async (url) => {
+                        //addImageURL(url, RefCollection, Title, count, youtube_link);
+
+                        await db
+                          .collection("Gallery")
+                          .doc(date + " - " + uniqkey)
+                          .update({ url: url })
+                          .then(function () {
+                            console.log("Success");
+                          })
+                          .catch(function (error) {
+                            console.error("Error adding document: ", error);
+                          });
+                      });
+                  });
+                });
+              })
+              .catch((e) => console.log(e));
           })
           .catch(function (error) {
             console.error("Error adding document: ", error);
           });
 
-        for (let key = 0; key < Object.keys(file).length; key++) {
-          //if (file.hasOwnProperty(key)) {
-          const element = file[key];
-          const metadata = {
-            contentType: file.type,
-          };
+        //upload_files(file, EventRef, uniqkey, RefCollection, element.name, tab);
 
-          console.log(element.name);
-          console.log(key);
-
-          upload_files(file, EventRef, uniqkey, RefCollection, element.name, tab);
-        }
         $("#gallery-toast").toast("show");
         form.reset();
         break;
@@ -392,7 +436,7 @@ async function handleEventForm(tab, uniqueEventForm) {
   });
 }
 
-async function upload_files(file, EventRef, uniqkey, RefCollection, Title, tab) {
+async function upload_files(file, EventRef, uniqkey, RefCollection, Title, tab, youtube_link) {
   console.log(Object.keys(file).length);
   console.log(tab);
   console.log(Title);
@@ -411,7 +455,7 @@ async function upload_files(file, EventRef, uniqkey, RefCollection, Title, tab) 
       .put(file[key], metadata)
       .then(function (snapshot) {
         console.log("Uploaded a blob or file!");
-        generateURL(uniqkey, RefCollection, Title, tab);
+        generateURL(uniqkey, RefCollection, Title, tab, youtube_link);
       })
       .catch((e) => console.log(e));
   }
@@ -430,7 +474,7 @@ function addForm(RefCollection, uniqueObj) {
     });
 }
 
-async function generateURL(key, RefCollection, Title, tab) {
+async function generateURL(key, RefCollection, Title, tab, youtube_link) {
   let count = 0;
   console.log("function called");
   console.log(Title);
@@ -444,22 +488,22 @@ async function generateURL(key, RefCollection, Title, tab) {
         image.getDownloadURL().then(function (url) {
           console.log(url, key);
           count++;
-          addImageURL(url, RefCollection, Title, count);
+          addImageURL(url, RefCollection, Title, count, youtube_link);
         });
       });
     });
 }
 
-async function addImageURL(url, RefCollection, Title, count) {
+async function addImageURL(url, RefCollection, Title, count, youtube_link) {
   let imageUrl = {};
   imageUrl["url" + count] = url;
-
+  const url_key = "url" + count;
   console.log(Title);
 
   await db
     .collection("Img Pending in Past Event")
     .doc(Title)
-    .update(imageUrl)
+    .update({ imageUrl, youtube_link })
     .then(function () {
       console.log("Success");
     })
@@ -467,8 +511,6 @@ async function addImageURL(url, RefCollection, Title, count) {
       console.error("Error adding document: ", error);
     });
 }
-
-check_tab("upcoming-events-tab");
 
 async function moveEvent() {
   const timestamp = Date.now();
@@ -526,8 +568,6 @@ async function moveEvent() {
       console.log("Error getting documents: ", error);
     });
 }
-
-moveEvent();
 
 async function fetchPastEventList() {
   let count = 1;
@@ -611,3 +651,6 @@ function checkModification(RefCollection) {
     });
   });
 }
+
+moveEvent();
+check_tab("upcoming-events-tab");

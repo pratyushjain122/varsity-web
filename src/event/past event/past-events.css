@@ -65,4 +65,7 @@ body::-webkit-scrollbar-thumb {
   #content {
     padding: 40px 20px 0px 20px;
   }
+  .card {
+    margin: 0;
+  }
 }

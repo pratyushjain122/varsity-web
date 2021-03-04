@@ -58,6 +58,16 @@ body::-webkit-scrollbar-thumb {
   font-size: 3.5rem;
 }
 
+iframe {
+  width: 700px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+#frame {
+  border: 5px solid coral;
+}
+
 @media (max-width: 990px) {
   .carousel .carousel-item {
     height: auto;

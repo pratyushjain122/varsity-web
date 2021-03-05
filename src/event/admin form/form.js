@@ -308,33 +308,33 @@ async function handleEventForm(tab, uniqueEventForm) {
                 let count = 0;
                 console.log("function called");
                 //console.log(Title);
-                await EventRef.listAll().then(function (result) {
-                  result.items.forEach(function (image) {
-                    //   display_image(images);
+                await EventRef.child(uniqueObj.Date + " - " + uniqkey)
+                  .getDownloadURL()
+                  .then(function (url) {
+                    //console.log(url);
+                    count++;
+                    return url;
+                  })
+                  .then(async (url) => {
+                    //addImageURL(url, RefCollection, Title, count, youtube_link);
 
-                    image
-                      .getDownloadURL()
-                      .then(function (url) {
-                        //console.log(url);
-                        count++;
-                        return url;
+                    await db
+                      .collection("Gallery")
+                      .doc(date + " - " + uniqkey)
+                      .update({ url: url })
+                      .then(function () {
+                        console.log("Success");
                       })
-                      .then(async (url) => {
-                        //addImageURL(url, RefCollection, Title, count, youtube_link);
-
-                        await db
-                          .collection("Gallery")
-                          .doc(date + " - " + uniqkey)
-                          .update({ url: url })
-                          .then(function () {
-                            console.log("Success");
-                          })
-                          .catch(function (error) {
-                            console.error("Error adding document: ", error);
-                          });
+                      .catch(function (error) {
+                        console.error("Error adding document: ", error);
                       });
                   });
-                });
+
+                // await EventRef.listAll().then(function (result) {
+                //   result.items.forEach(function (image) {
+                //     //   display_image(images);
+                //   });
+                // });
               })
               .catch((e) => console.log(e));
           })

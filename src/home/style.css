@@ -34,7 +34,7 @@ body::-webkit-scrollbar-thumb {
 #landing-page {
   min-height: 92vh;
   background: #111;
-  background-image: url(../../assets/Symbiosis_Institute_Of_Technol.png);
+  background-image: url(../../assets/home.png);
   background-repeat: no-repeat;
   background-size: cover;
 }

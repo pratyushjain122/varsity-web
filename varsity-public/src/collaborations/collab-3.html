@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>V@rSITy Care | Upcoming Events</title>
-    <link rel="icon" href="/assets/favicon.png" type="image/gif" sizes="16x16" />
-    <link rel="stylesheet" href="../upcoming event/upcoming-events.css" />
+    <title>V@rSITy Care | Details</title>
+    <link rel="icon" href="../../assets/favicon.png" type="image/gif" sizes="16x16" />
+    <link rel="stylesheet" href="../collaborations/details.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -29,26 +29,14 @@
       integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
       crossorigin="anonymous"
     />
-
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-storage.js"></script>
   </head>
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light border-bottom border-2 border-secondary">
       <div class="container-fluid">
-        <a href="/index.html"><img src="../../../assets/logo1.png" alt="" /></a>
+        <a href="/index.html"><img src="../../assets/favicon.png" alt="" /></a>
         <a class="navbar-brand" href="/index.html">&nbsp; V@rSITy Care</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -63,19 +51,19 @@
               <a class="nav-link text-dark" href="/index.html#contact-us"> Contact Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="../../event/past event/past-events.html"> Past Events</a>
+              <a class="nav-link text-dark" href="../event/past event/past-events.html"> Past Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="../../../src/gallery/gallery.html"> Gallery</a>
+              <a class="nav-link text-dark" href="../gallery/gallery.html"> Gallery</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="../../event/upcoming event/upcoming-events.html"> Upcoming Events</a>
+              <a class="nav-link text-dark" href="../event/upcoming event/upcoming-events.html"> Upcoming Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="../../../src/collaborations/collaborations.html"> Collaborations</a>
+              <a class="nav-link text-dark" href="../collaborations/collaborations.html"> Collaborations</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" href="../../../src/members/members.html"> Members</a>
+              <a class="nav-link text-dark" href="../members/members.html"> Members</a>
             </li>
           </ul>
         </div>
@@ -83,36 +71,62 @@
     </nav>
 
     <!-- CONTENT -->
-    <div id="content">
-      <h1 id="h1" class="text-white pt-0 mt-0 pb-3"><i class="fas fa-calendar-alt"></i> UPCOMING EVENTS</h1>
-
-      <!-- EVENTS -->
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" id="EVENT">
-          <!-- <div class="carousel-item active">
-            <div class="d-flex justify-content-center">
-              <div class="card">
-                <div class="card-body">
-                  <h3 class="card-title">Event 1</h3>
-                  <p class="card-text"
-                    >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, vitae non voluptatibus
-                    necessitatibus debitis incidunt quod, possimus fuga voluptas obcaecati deleniti modi ullam atque
-                    quaerat mollitia dignissimos iure exercitationem consectetur?</p
-                  >
-                </div>
-                <div class="card-footer text-danger text-center" id="demo"> </div>
-              </div>
-            </div>
-          </div> -->
+    <div>
+      <!-- CAROUSEL
+      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../../assets/collaboration/rotaract_1.jpg" class="d-block w-100" alt="..." />
+          </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+        <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+        <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </a>
+      </div> -->
+
+      <div class="card">
+        <div
+          class="card-body d-flex align-items-center justify-content-center"
+          style="
+            background: #141e30; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to top, #243b55, #141e30); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to top, #243b55, #141e30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          "
+        >
+          <p class="card-text text-center">Rotaract Club of Thane North End</p>
+        </div>
+      </div>
+
+      <div id="content">
+        <div class="row row-cols-md-2">
+          <div class="col">
+            <h2>Spread a Bite</h2>
+            <h5>DATE : October, 2020</h5>
+            <h5>EVENT : “International Day of Charity”, food donation drive.</h5>
+            <h5>ORGANIZATION: Rotaract Club of Thane North End</h5>
+            <h5>LOCATION : Navi Mumbai</h5>
+            <p>
+              On the occasion of International Day of Charity, which is observed annually on 5th of September, the Rotaract Club of Thane North End initiated a food donation drive – SPREAD A BITE from
+              the 4th of September to the 8th of September. The main aim was to provide nutritious food to the underprivileged people. V@rSITy Care has collaborated with the Rotaract Club of Thane
+              North End and we joined this drive in a very responsible and enthusiastic manner. One of our club members , Nikhil Sawant took up the responsibility of donating the food to the
+              underprivileged whereas the other members of V@rSITy Care decided to donate the amount that would be required for the food. The response was astounding. We collected an amount of more
+              than 5000 Rs. Around 50 people were provided food with this amount. V@rSITy Care has decided to continue this drive for another month.
+            </p>
+          </div>
+          <div class="col d-flex justify-content-center">
+            <img src="../../assets/collaboration/rotaract_1.jpg" alt="" />
+          </div>
+        </div>
       </div>
     </div>
 
@@ -120,9 +134,7 @@
     <div>
       <ul class="nav h-100 pt-3 navbar-dark bg-dark justify-content-center">
         <li class="nav-item">
-          <a class="nav-link text-white" href="/index.html">
-            <h2>V@rSITy Care</h2><h6 style="text-align: center">We at SIT care</h6>
-          </a>
+          <a class="nav-link text-white" href="../../index.html"> <h2>V@rSITy Care</h2><h6 style="text-align: center">We at SIT care</h6> </a>
         </li>
       </ul>
       <ul class="nav h-100 pb-4 navbar-dark bg-dark justify-content-center">
@@ -155,8 +167,6 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script src="../../firebase/firebase.js"></script>
-    <script src="../event.js"></script>
     <script>
       $(".nav-link").on("click", function () {
         $(".navbar-collapse").collapse("hide");

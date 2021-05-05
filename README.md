@@ -44,4 +44,4 @@ For support, email teamvarweb@gmail.com.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/pratyushjain122/varsity-web/blob/main/LICENSE)

@@ -35,7 +35,7 @@ for (let i = 0; i < arr_year.length; i++) {
               doc.data().description +
               '</p><div class="d-flex justify-content-end"><a href="' +
               doc.data().youtube_link +
-              '" target="_blank"><img id="youtube" src="/varsity-public/assets/youtube.svg" alt="YT" class="me-2" /></a></div></div></div></div>";';
+              '" target="_blank"><img id="youtube" src="../../../assets/youtube.svg" alt="YT" class="me-2" /></a></div></div></div></div>";';
           } else {
             var html_insert =
               '<div class="col"><div class="card border-dark mb-3" style="max-width: 28rem"><div class="img-card"><img src="' +

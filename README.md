@@ -18,7 +18,7 @@ V@rSITy Care, the social awareness club at **Symbiosis Institute Of Technology, 
 
 ## Tech Stack
 
-**Client:** HTML5, CSS3, Bootstrap, jQuery
+**Client:** JavaScript, HTML5, CSS3, Bootstrap, jQuery
 
 **Database:** Cloud Firestore
 

@@ -26,16 +26,6 @@ V@rSITy Care, the social awareness club at **Symbiosis Institute Of Technology, 
 
 &nbsp;
 
-## Authors
-
-- [@yuktibagrodia](https://github.com/yuktibagrodia)
-- [@pratyushjain122](https://github.com/pratyushjain122)
-- [@rahulmansharamani14](https://github.com/rahulmansharamani14)
-- [@Achyut-0705](https://github.com/Achyut-0705)
-- [@ayushsaini1607](https://github.com/ayushsaini1607)
-
-&nbsp;
-
 ## Support
 
 For support, email teamvarweb@gmail.com.

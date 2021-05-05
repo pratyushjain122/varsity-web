@@ -26,7 +26,7 @@ V@rSITy Care, the social awareness club at **Symbiosis Institute Of Technology, 
 
 &nbsp;
 
-## Support
+## Support/Contact
 
 For support, email teamvarweb@gmail.com.
 
